@@ -45,7 +45,6 @@ body{
 }
 
 /* HEADER */
-
 header{
   background:var(--primary);
   color:white;
@@ -106,7 +105,6 @@ header p{
 }
 
 /* HERO */
-
 .hero{
   background:linear-gradient(135deg,#063d2d,#0b6046);
   color:white;
@@ -134,7 +132,6 @@ header p{
 }
 
 /* MAIN */
-
 .container{
   max-width:1150px;
   margin:auto;
@@ -146,8 +143,7 @@ header p{
   margin-bottom:25px;
 }
 
-/* MAIN SECTIONS */
-
+/* THREE MAIN SECTIONS */
 .main-sections{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -193,7 +189,6 @@ header p{
 }
 
 /* SURAHS */
-
 .surah-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -250,7 +245,6 @@ header p{
 }
 
 /* PAGES */
-
 #reader,
 #namazPage,
 #hadithPage{
@@ -275,8 +269,6 @@ header p{
   margin:25px 0;
 }
 
-/* CONTROLS */
-
 .controls-box{
   background:var(--card);
   border:1px solid var(--border);
@@ -286,6 +278,7 @@ header p{
   text-align:center;
 }
 
+/* FONT */
 .font-controls{
   display:flex;
   justify-content:center;
@@ -306,7 +299,6 @@ header p{
 }
 
 /* AUDIO */
-
 .audio-controls{
   margin-top:30px;
   padding-top:20px;
@@ -354,7 +346,6 @@ audio{
 }
 
 /* AYAT */
-
 .ayah{
   background:var(--card);
   border-radius:16px;
@@ -383,7 +374,6 @@ audio{
 }
 
 /* NAMAZ / HADITH */
-
 .content-card{
   background:var(--card);
   border:1px solid var(--border);
@@ -413,7 +403,6 @@ body.dark .content-card h2{
 }
 
 /* INFORMATION */
-
 .info-modal{
   position:fixed;
   inset:0;
@@ -510,17 +499,7 @@ body.dark .content-card h2{
   font-size:14px;
 }
 
-/* LOADING */
-
-.loading{
-  text-align:center;
-  padding:30px;
-  color:var(--muted);
-  font-size:17px;
-}
-
 /* FOOTER */
-
 footer{
   background:var(--primary);
   color:white;
@@ -533,26 +512,18 @@ footer h2{
   color:var(--gold);
 }
 
-/* MOBILE */
+/* LOADING */
+.loading{
+  text-align:center;
+  padding:30px;
+  font-size:18px;
+}
 
+/* MOBILE */
 @media(max-width:700px){
 
   header{
-    padding-top:70px;
-  }
-
-  .academy-title{
-    flex-direction:column;
-    gap:8px;
-  }
-
-  .academy-logo{
-    width:60px;
-    height:60px;
-  }
-
-  .academy-title h1{
-    font-size:22px;
+    padding-top:85px;
   }
 
   .main-sections{
@@ -570,6 +541,30 @@ footer h2{
   .ayah{
     padding:18px;
   }
+
+  .academy-title{
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .academy-logo{
+    width:60px;
+    height:60px;
+  }
+
+  .academy-title h1{
+    font-size:22px;
+  }
+
+  .theme-btn{
+    right:12px;
+    top:12px;
+  }
+
+  .info-btn{
+    left:12px;
+    top:12px;
+  }
 }
 </style>
 </head>
@@ -577,28 +572,27 @@ footer h2{
 <body>
 
 <!-- HEADER -->
-
 <header>
 
 <button
-  class="theme-btn"
-  id="themeButton"
-  onclick="toggleDarkMode()">
-  🌙 Dark
+class="theme-btn"
+id="themeButton"
+onclick="toggleDarkMode()">
+🌙 Dark
 </button>
 
 <button
-  class="info-btn"
-  onclick="openInfo()">
-  ⓘ
+class="info-btn"
+onclick="openInfo()">
+ⓘ
 </button>
 
 <div class="academy-title">
 
 <img
-  src="logo.png"
-  alt="Quran"
-  class="academy-logo">
+src="logo.png"
+alt="Quran"
+class="academy-logo">
 
 <h1>☪ IQRA QURAN ACADEMY</h1>
 
@@ -612,21 +606,18 @@ Read • Learn • Understand The Holy Quran
 
 
 <!-- HERO -->
-
 <section class="hero" id="hero">
 
 <h2>📖 Islamic Learning</h2>
 
-<p>
-Quran • Namaz • Hadith
-</p>
+<p>Quran • Namaz • Hadith</p>
 
 <div class="search-box">
 
 <input
-  id="search"
-  placeholder="Search Surah: Fatiha, Yaseen, Mulk, 36..."
-  oninput="searchSurah()">
+id="search"
+placeholder="Search Surah: Fatiha, Yaseen, Mulk, 36..."
+oninput="searchSurah()">
 
 </div>
 
@@ -634,18 +625,15 @@ Quran • Namaz • Hadith
 
 
 <!-- HOME -->
-
 <div class="container" id="home">
 
 <h2 class="title">
 ☪ Islamic Place
 </h2>
 
-
 <div class="main-sections">
 
 <!-- QURAN -->
-
 <div class="main-card" onclick="showQuran()">
 
 <div class="main-icon">
@@ -663,7 +651,6 @@ English translation and Qari audio.
 
 
 <!-- NAMAZ -->
-
 <div class="main-card" onclick="showNamaz()">
 
 <div class="main-icon">
@@ -681,7 +668,6 @@ important duas and prayer information.
 
 
 <!-- HADITH -->
-
 <div class="main-card" onclick="showHadith()">
 
 <div class="main-icon">
@@ -700,17 +686,14 @@ important Islamic teachings.
 </div>
 
 
-<!-- SURAH LIST -->
-
+<!-- QURAN LIST -->
 <div id="quranHome">
 
 <h2 class="title">
 📖 All 114 Surahs
 </h2>
 
-<div
-  class="surah-grid"
-  id="surahList">
+<div class="surah-grid" id="surahList">
 
 <div class="loading">
 📖 Loading Surahs...
@@ -724,12 +707,9 @@ important Islamic teachings.
 
 
 <!-- QURAN READER -->
-
 <div id="reader">
 
-<button
-  class="back-btn"
-  onclick="goHome()">
+<button class="back-btn" onclick="goHome()">
 ← Home
 </button>
 
@@ -764,44 +744,67 @@ A+
 </div>
 
 
-<!-- AUDIO -->
-
 <div class="audio-controls">
 
 <h3>
-🎧 Available Qaris for This Surah
+🎧 Qari Audio
 </h3>
 
 <p id="qariStatus">
-🔎 Finding available Qaris...
+Select a Qari. Some recordings may not be available.
 </p>
+
 
 <select id="qariSelect">
 
 <option value="">
-Finding available Qaris...
+Select Qari
+</option>
+
+<option value="ar.alafasy">
+Mishary Rashid Alafasy
+</option>
+
+<option value="ar.abdulbasitmurattal">
+Abdul Basit Abdul Samad
+</option>
+
+<option value="ar.hudhaify">
+Ali Al-Hudhaify
+</option>
+
+<option value="ar.abdurrahmaansudais">
+Abdul Rahman Al-Sudais
+</option>
+
+<option value="ar.saoodshuraym">
+Saud Al-Shuraim
 </option>
 
 </select>
 
 <br>
 
+
 <button
-  class="play-btn"
-  onclick="playAudio()">
+class="play-btn"
+onclick="playAudio()">
 ▶ Play Selected Qari
 </button>
 
 <button
-  class="stop-btn"
-  onclick="stopAudio()">
+class="stop-btn"
+onclick="stopAudio()">
 ⏹ Stop
 </button>
 
+
 <audio
-  id="quranAudio"
-  controls>
+id="quranAudio"
+controls>
+
 Your browser does not support audio.
+
 </audio>
 
 <p id="audioStatus"></p>
@@ -817,20 +820,15 @@ Your browser does not support audio.
 
 
 <!-- NAMAZ PAGE -->
-
 <div id="namazPage">
 
-<button
-  class="back-btn"
-  onclick="goHome()">
+<button class="back-btn" onclick="goHome()">
 ← Home
 </button>
 
 <div class="reader-header">
 
-<h2>
-🕌 Namaz / Salah
-</h2>
+<h2>🕌 Namaz / Salah</h2>
 
 <p>
 Basic information about daily prayer
@@ -948,20 +946,15 @@ Finish with Salam.
 
 
 <!-- HADITH PAGE -->
-
 <div id="hadithPage">
 
-<button
-  class="back-btn"
-  onclick="goHome()">
+<button class="back-btn" onclick="goHome()">
 ← Home
 </button>
 
 <div class="reader-header">
 
-<h2>
-📜 Hadith
-</h2>
+<h2>📜 Hadith</h2>
 
 <p>
 Selected Islamic teachings
@@ -1046,18 +1039,17 @@ Hadith collections.
 </div>
 
 
-<!-- INFORMATION -->
-
+<!-- INFORMATION MODAL -->
 <div
-  id="infoModal"
-  class="info-modal"
-  onclick="closeInfoOutside(event)">
+id="infoModal"
+class="info-modal"
+onclick="closeInfoOutside(event)">
 
 <div class="info-panel">
 
 <button
-  class="close-info"
-  onclick="closeInfo()">
+class="close-info"
+onclick="closeInfo()">
 ×
 </button>
 
@@ -1115,8 +1107,9 @@ Qari Audio
 </div>
 
 <div class="info-card-text">
-Only Qaris with an available recording
-for the selected Surah are shown.
+Different Qaris are available.
+Some recordings may not be available
+for every Surah.
 </div>
 
 </div>
@@ -1137,8 +1130,8 @@ Audio Problems
 </div>
 
 <div class="info-card-text">
-If an audio file cannot be loaded,
-try another available Qari.
+If one Qari does not work for a Surah,
+try another Qari.
 </div>
 
 </div>
@@ -1203,9 +1196,9 @@ Internet
 </div>
 
 <div class="info-card-text">
-Quran data and audio are loaded
-from online services, so an internet
-connection is required.
+Quran data and audio are loaded from
+online services, so an internet connection
+is required.
 </div>
 
 </div>
@@ -1240,7 +1233,6 @@ phones, tablets and computers.
 
 
 <!-- FOOTER -->
-
 <footer>
 
 <h2>
@@ -1260,1411 +1252,661 @@ Read • Learn • Understand The Holy Quran
 
 <script>
 
-/* =========================================================
-   VARIABLES
-========================================================= */
+/* ================= VARIABLES ================= */
 
 let surahs = [];
 let currentSurah = 1;
 let arabicFontSize = 30;
 
-/*
-  This will contain the official by-surah audio availability.
-*/
-let surahAudioData = null;
 
-
-/* =========================================================
-   THEME
-========================================================= */
+/* ================= THEME ================= */
 
 function toggleDarkMode(){
 
-  document.body.classList.toggle("dark");
+document.body.classList.toggle("dark");
 
-  const btn =
-    document.getElementById("themeButton");
+const btn =
+document.getElementById("themeButton");
 
-  if(document.body.classList.contains("dark")){
+if(document.body.classList.contains("dark")){
 
-    btn.innerHTML = "☀️ Light";
+btn.innerHTML = "☀️ Light";
 
-    localStorage.setItem(
-      "theme",
-      "dark"
-    );
+localStorage.setItem("theme","dark");
 
-  }else{
+}else{
 
-    btn.innerHTML = "🌙 Dark";
+btn.innerHTML = "🌙 Dark";
 
-    localStorage.setItem(
-      "theme",
-      "light"
-    );
+localStorage.setItem("theme","light");
 
-  }
+}
 
 }
 
 
-if(localStorage.getItem("theme") === "dark"){
+if(localStorage.getItem("theme")==="dark"){
 
-  document.body.classList.add("dark");
+document.body.classList.add("dark");
 
-  document.getElementById(
-    "themeButton"
-  ).innerHTML = "☀️ Light";
+document.getElementById("themeButton")
+.innerHTML="☀️ Light";
 
 }
 
 
-/* =========================================================
-   INFO
-========================================================= */
+/* ================= INFO ================= */
 
 function openInfo(){
 
-  document
-    .getElementById("infoModal")
-    .classList.add("show");
+document
+.getElementById("infoModal")
+.classList.add("show");
 
 }
 
 
 function closeInfo(){
 
-  document
-    .getElementById("infoModal")
-    .classList.remove("show");
+document
+.getElementById("infoModal")
+.classList.remove("show");
 
 }
 
 
 function closeInfoOutside(e){
 
-  if(e.target.id === "infoModal"){
+if(e.target.id==="infoModal"){
 
-    closeInfo();
+closeInfo();
 
-  }
+}
 
 }
 
 
-/* =========================================================
-   FONT
-========================================================= */
+/* ================= FONT ================= */
 
 const savedFont =
-  localStorage.getItem("arabicFontSize");
+localStorage.getItem("arabicFontSize");
 
 if(savedFont){
 
-  arabicFontSize =
-    parseInt(savedFont);
+arabicFontSize =
+parseInt(savedFont);
 
 }
 
 
 function increaseFont(){
 
-  if(arabicFontSize < 60){
+if(arabicFontSize < 60){
 
-    arabicFontSize += 2;
+arabicFontSize += 2;
 
-    updateFont();
+updateFont();
 
-  }
+}
 
 }
 
 
 function decreaseFont(){
 
-  if(arabicFontSize > 20){
+if(arabicFontSize > 20){
 
-    arabicFontSize -= 2;
+arabicFontSize -= 2;
 
-    updateFont();
+updateFont();
 
-  }
+}
 
 }
 
 
 function updateFont(){
 
-  document
-    .querySelectorAll(".arabic")
-    .forEach(el => {
+document
+.querySelectorAll(".arabic")
+.forEach(el=>{
 
-      el.style.fontSize =
-        arabicFontSize + "px";
-
-    });
-
-
-  document.getElementById(
-    "fontSizeText"
-  ).innerHTML =
-    "Ayat: " +
-    arabicFontSize +
-    "px";
-
-
-  localStorage.setItem(
-    "arabicFontSize",
-    arabicFontSize
-  );
-
-}
-
-
-/* =========================================================
-   LOAD SURAHS
-========================================================= */
-
-fetch(
-  "https://api.alquran.cloud/v1/surah"
-)
-
-.then(r => r.json())
-
-.then(data => {
-
-  surahs = data.data;
-
-  displaySurahs(surahs);
-
-})
-
-.catch(() => {
-
-  document.getElementById(
-    "surahList"
-  ).innerHTML =
-    "<div class='loading'>❌ Could not load Surahs.</div>";
+el.style.fontSize =
+arabicFontSize+"px";
 
 });
 
 
-/* =========================================================
-   DISPLAY SURAHS
-========================================================= */
+document
+.getElementById("fontSizeText")
+.innerHTML =
+"Ayat: "+arabicFontSize+"px";
+
+
+localStorage.setItem(
+"arabicFontSize",
+arabicFontSize
+);
+
+}
+
+
+/* ================= LOAD SURAHS ================= */
+
+fetch(
+"https://api.alquran.cloud/v1/surah"
+)
+
+.then(r=>r.json())
+
+.then(data=>{
+
+surahs = data.data;
+
+displaySurahs(surahs);
+
+})
+
+.catch(()=>{
+
+document.getElementById("surahList")
+.innerHTML =
+"<div class='loading'>❌ Could not load Surahs.</div>";
+
+});
+
+
+/* ================= DISPLAY SURAHS ================= */
 
 function displaySurahs(list){
 
-  let html = "";
+let html = "";
 
-  list.forEach(surah => {
+list.forEach(surah=>{
 
-    html += `
+html += `
 
-      <div
-        class="surah-card"
-        onclick="openSurah(${surah.number})">
+<div
+class="surah-card"
+onclick="openSurah(${surah.number})">
 
-        <div class="number">
-          ${surah.number}
-        </div>
+<div class="number">
+${surah.number}
+</div>
 
-        <div class="info">
+<div class="info">
 
-          <h3>
-            ${surah.englishName}
-          </h3>
+<h3>
+${surah.englishName}
+</h3>
 
-          <p>
-            ${surah.englishNameTranslation}
-            •
-            ${surah.numberOfAyahs}
-            Ayahs
-          </p>
+<p>
+${surah.englishNameTranslation}
+•
+${surah.numberOfAyahs}
+Ayahs
+</p>
 
-        </div>
+</div>
 
-        <div class="arabic-name">
-          ${surah.name}
-        </div>
+<div class="arabic-name">
+${surah.name}
+</div>
 
-      </div>
+</div>
 
-    `;
+`;
 
-  });
-
-
-  if(list.length === 0){
-
-    html =
-      "<div class='loading'>No Surah found.</div>";
-
-  }
+});
 
 
-  document.getElementById(
-    "surahList"
-  ).innerHTML = html;
+if(list.length===0){
+
+html =
+"<div class='loading'>No Surah found.</div>";
 
 }
 
 
-/* =========================================================
-   SEARCH
-========================================================= */
+document.getElementById("surahList")
+.innerHTML = html;
+
+}
+
+
+/* ================= SEARCH ================= */
 
 function searchSurah(){
 
-  const value =
-    document
-      .getElementById("search")
-      .value
-      .toLowerCase()
-      .trim();
+const value =
+document
+.getElementById("search")
+.value
+.toLowerCase()
+.trim();
 
 
-  const filtered =
-    surahs.filter(surah =>
+const filtered =
+surahs.filter(surah =>
 
-      surah.englishName
-        .toLowerCase()
-        .includes(value)
+surah.englishName
+.toLowerCase()
+.includes(value)
 
-      ||
+||
 
-      surah.englishNameTranslation
-        .toLowerCase()
-        .includes(value)
+surah.englishNameTranslation
+.toLowerCase()
+.includes(value)
 
-      ||
+||
 
-      surah.name.includes(value)
+surah.name.includes(value)
 
-      ||
+||
 
-      String(surah.number)
-        .includes(value)
+String(surah.number)
+.includes(value)
 
-    );
+);
 
 
-  displaySurahs(filtered);
+displaySurahs(filtered);
 
 }
 
 
-/* =========================================================
-   SHOW QURAN
-========================================================= */
+/* ================= QURAN PAGE ================= */
 
 function showQuran(){
 
-  document.getElementById(
-    "home"
-  ).style.display = "block";
+document.getElementById("home")
+.style.display="block";
 
-  document.getElementById(
-    "hero"
-  ).style.display = "block";
+document.getElementById("hero")
+.style.display="block";
 
-  document.getElementById(
-    "quranHome"
-  ).style.display = "block";
+document.getElementById("quranHome")
+.style.display="block";
 
-  document.getElementById(
-    "reader"
-  ).style.display = "none";
+document.getElementById("reader")
+.style.display="none";
 
-  document.getElementById(
-    "namazPage"
-  ).style.display = "none";
+document.getElementById("namazPage")
+.style.display="none";
 
-  document.getElementById(
-    "hadithPage"
-  ).style.display = "none";
+document.getElementById("hadithPage")
+.style.display="none";
 
-  window.scrollTo(0,0);
+window.scrollTo(0,0);
 
 }
 
 
-/* =========================================================
-   NAMAZ
-========================================================= */
+/* ================= NAMAZ ================= */
 
 function showNamaz(){
 
-  stopAudio();
+document.getElementById("home")
+.style.display="none";
 
-  document.getElementById(
-    "home"
-  ).style.display = "none";
+document.getElementById("hero")
+.style.display="none";
 
-  document.getElementById(
-    "hero"
-  ).style.display = "none";
+document.getElementById("reader")
+.style.display="none";
 
-  document.getElementById(
-    "reader"
-  ).style.display = "none";
+document.getElementById("namazPage")
+.style.display="block";
 
-  document.getElementById(
-    "namazPage"
-  ).style.display = "block";
+document.getElementById("hadithPage")
+.style.display="none";
 
-  document.getElementById(
-    "hadithPage"
-  ).style.display = "none";
-
-  window.scrollTo(0,0);
+window.scrollTo(0,0);
 
 }
 
 
-/* =========================================================
-   HADITH
-========================================================= */
+/* ================= HADITH ================= */
 
 function showHadith(){
 
-  stopAudio();
+document.getElementById("home")
+.style.display="none";
 
-  document.getElementById(
-    "home"
-  ).style.display = "none";
+document.getElementById("hero")
+.style.display="none";
 
-  document.getElementById(
-    "hero"
-  ).style.display = "none";
+document.getElementById("reader")
+.style.display="none";
 
-  document.getElementById(
-    "reader"
-  ).style.display = "none";
+document.getElementById("namazPage")
+.style.display="none";
 
-  document.getElementById(
-    "namazPage"
-  ).style.display = "none";
+document.getElementById("hadithPage")
+.style.display="block";
 
-  document.getElementById(
-    "hadithPage"
-  ).style.display = "block";
-
-  window.scrollTo(0,0);
+window.scrollTo(0,0);
 
 }
 
 
-/* =========================================================
-   HOME
-========================================================= */
+/* ================= HOME ================= */
 
 function goHome(){
 
-  stopAudio();
+stopAudio();
 
-  document.getElementById(
-    "home"
-  ).style.display = "block";
+document.getElementById("home")
+.style.display="block";
 
-  document.getElementById(
-    "hero"
-  ).style.display = "block";
+document.getElementById("hero")
+.style.display="block";
 
-  document.getElementById(
-    "quranHome"
-  ).style.display = "block";
+document.getElementById("quranHome")
+.style.display="block";
 
-  document.getElementById(
-    "reader"
-  ).style.display = "none";
+document.getElementById("reader")
+.style.display="none";
 
-  document.getElementById(
-    "namazPage"
-  ).style.display = "none";
+document.getElementById("namazPage")
+.style.display="none";
 
-  document.getElementById(
-    "hadithPage"
-  ).style.display = "none";
+document.getElementById("hadithPage")
+.style.display="none";
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 }
 
 
-/* =========================================================
-   LOAD OFFICIAL SURAH AUDIO AVAILABILITY
-========================================================= */
+/* ================= OPEN SURAH ================= */
 
-/*
-  IMPORTANT:
+function openSurah(number){
 
-  Al Quran Cloud's official CDN provides a JSON file
-  specifically for audio availability by Surah.
+currentSurah = number;
 
-  We use that instead of simply showing every audio Qari.
-*/
+document.getElementById("home")
+.style.display="none";
 
-async function loadSurahAudioData(){
+document.getElementById("hero")
+.style.display="none";
 
-  try{
+document.getElementById("reader")
+.style.display="block";
 
-    const response = await fetch(
-      "https://cdn.islamic.network/quran/info/by-surah/info.json",
-      {
-        cache:"no-store"
-      }
-    );
+document.getElementById("namazPage")
+.style.display="none";
 
-    if(!response.ok){
+document.getElementById("hadithPage")
+.style.display="none";
 
-      throw new Error(
-        "Audio availability request failed"
-      );
 
-    }
+document.getElementById("ayahs")
+.innerHTML =
+"<div class='loading'>📖 Loading Quran...</div>";
 
-    surahAudioData =
-      await response.json();
 
-    console.log(
-      "Surah audio availability loaded",
-      surahAudioData
-    );
+document.getElementById("audioStatus")
+.innerHTML="";
 
-    return true;
 
-  }catch(error){
+stopAudio();
 
-    console.error(
-      "Could not load audio availability:",
-      error
-    );
+window.scrollTo(0,0);
 
-    surahAudioData = null;
 
-    return false;
+fetch(
+"https://api.alquran.cloud/v1/surah/"
++
+number
++
+"/editions/quran-uthmani,en.asad"
+)
 
-  }
+.then(r=>r.json())
 
-}
+.then(data=>{
 
+const arabic = data.data[0];
 
-/*
-  Start loading immediately.
-*/
+const translation = data.data[1];
 
-loadSurahAudioData();
 
+document.getElementById("surahTitle")
+.innerHTML =
+arabic.number
++
+". "
++
+arabic.englishName
++
+" — "
++
+arabic.name;
 
-/* =========================================================
-   GET AVAILABLE QARIS FOR CURRENT SURAH
-========================================================= */
 
-function getAvailableQaris(surahNumber){
+let html = "";
 
-  if(!surahAudioData){
 
-    return [];
-
-  }
-
-
-  let source =
-    surahAudioData;
-
-
-  /*
-    The CDN information format can contain the
-    Surah data in different object arrangements.
-
-    We handle the common arrangements safely.
-  */
-
-
-  if(Array.isArray(source)){
-
-    /*
-      Example possibilities:
-      [
-        {
-          "surah": 1,
-          "edition": "ar.alafasy"
-        }
-      ]
-    */
-
-    const result = source.filter(item => {
-
-      const number =
-        Number(
-          item.surah ||
-          item.surahNumber ||
-          item.number
-        );
-
-      return number === Number(surahNumber);
-
-    });
-
-    return result;
-
-  }
-
-
-  /*
-    If the response is an object keyed by Surah number.
-  */
-
-  if(
-    source &&
-    source[String(surahNumber)]
-  ){
-
-    const value =
-      source[String(surahNumber)];
-
-    if(Array.isArray(value)){
-
-      return value;
-
-    }
-
-    if(value && typeof value === "object"){
-
-      return Object.values(value);
-
-    }
-
-  }
-
-
-  /*
-    Some formats may have a "data" property.
-  */
-
-  if(
-    source &&
-    Array.isArray(source.data)
-  ){
-
-    const result =
-      source.data.filter(item => {
-
-        const number =
-          Number(
-            item.surah ||
-            item.surahNumber ||
-            item.number
-          );
-
-        return number === Number(surahNumber);
-
-      });
-
-    return result;
-
-  }
-
-
-  return [];
-
-}
-
-
-/* =========================================================
-   EXTRACT EDITION IDENTIFIER
-========================================================= */
-
-function getEditionIdentifier(item){
-
-  if(!item){
-    return "";
-  }
-
-
-  if(typeof item === "string"){
-
-    return item;
-
-  }
-
-
-  return (
-    item.identifier ||
-    item.edition ||
-    item.audio ||
-    item.name ||
-    ""
-  );
-
-}
-
-
-/* =========================================================
-   EXTRACT QARI NAME
-========================================================= */
-
-function getQariName(item, identifier){
-
-  if(item && typeof item === "object"){
-
-    return (
-      item.englishName ||
-      item.name ||
-      item.reciter ||
-      item.qari ||
-      identifier
-    );
-
-  }
-
-  return identifier;
-
-}
-
-
-/* =========================================================
-   LOAD QARIS FOR SURAH
-========================================================= */
-
-async function loadQarisForSurah(surahNumber){
-
-  const select =
-    document.getElementById(
-      "qariSelect"
-    );
-
-  const status =
-    document.getElementById(
-      "qariStatus"
-    );
-
-
-  select.innerHTML = `
-    <option value="">
-      🔎 Finding available Qaris...
-    </option>
-  `;
-
-
-  status.innerHTML =
-    "🔎 Finding Qaris for this Surah...";
-
-
-  /*
-    If availability data is not ready,
-    wait for it.
-  */
-
-  if(!surahAudioData){
-
-    const loaded =
-      await loadSurahAudioData();
-
-    if(!loaded){
-
-      /*
-        We use a small verified fallback list
-        and test each actual audio URL before
-        showing it.
-
-        This prevents unavailable Qaris from
-        appearing in the dropdown.
-      */
-
-      await loadQarisByTestingURLs(
-        surahNumber
-      );
-
-      return;
-
-    }
-
-  }
-
-
-  const available =
-    getAvailableQaris(surahNumber);
-
-
-  /*
-    Convert everything into unique identifiers.
-  */
-
-  const unique = {};
-
-
-  available.forEach(item => {
-
-    const identifier =
-      getEditionIdentifier(item);
-
-    if(!identifier){
-      return;
-    }
-
-
-    /*
-      Only audio editions should be accepted.
-    */
-
-    if(
-      identifier.startsWith("ar.") ||
-      identifier.includes("alafasy") ||
-      identifier.includes("abd") ||
-      identifier.includes("sudais") ||
-      identifier.includes("shuraim") ||
-      identifier.includes("hudhaify") ||
-      identifier.includes("minshawi") ||
-      identifier.includes("husary") ||
-      identifier.includes("basit")
-    ){
-
-      unique[identifier] = {
-
-        identifier:identifier,
-
-        name:
-          getQariName(
-            item,
-            identifier
-          )
-
-      };
-
-    }
-
-  });
-
-
-  const qaris =
-    Object.values(unique);
-
-
-  /*
-    If official JSON structure was not understood,
-    test common editions instead.
-  */
-
-  if(qaris.length === 0){
-
-    await loadQarisByTestingURLs(
-      surahNumber
-    );
-
-    return;
-
-  }
-
-
-  select.innerHTML =
-    '<option value="">Select Qari</option>';
-
-
-  qaris.forEach(qari => {
-
-    const option =
-      document.createElement(
-        "option"
-      );
-
-    option.value =
-      qari.identifier;
-
-    option.textContent =
-      qari.name;
-
-    select.appendChild(option);
-
-  });
-
-
-  status.innerHTML =
-    "🎧 " +
-    qaris.length +
-    " Qari(s) available for this Surah";
-
-
-  /*
-    Automatically select the first available Qari.
-  */
-
-  if(qaris.length > 0){
-
-    select.value =
-      qaris[0].identifier;
-
-  }
-
-}
-
-
-/* =========================================================
-   FALLBACK AUDIO TESTING
-========================================================= */
-
-/*
-  This function checks actual Surah audio URLs.
-
-  A Qari is added ONLY if the audio URL responds.
-
-  This is slower than simply listing Qaris,
-  but it is much more reliable.
-*/
-
-async function loadQarisByTestingURLs(
-  surahNumber
+for(
+let i=0;
+i<arabic.ayahs.length;
+i++
 ){
 
-  const select =
-    document.getElementById(
-      "qariSelect"
-    );
+html += `
 
-  const status =
-    document.getElementById(
-      "qariStatus"
-    );
+<div class="ayah">
 
+<div
+class="arabic"
+style="font-size:${arabicFontSize}px">
 
-  select.innerHTML =
-    '<option value="">🔎 Checking audio...</option>';
+${arabic.ayahs[i].text}
 
+<span class="ayah-number">
 
-  status.innerHTML =
-    "🔎 Checking which Qaris can play this Surah...";
+(
+${arabic.ayahs[i].numberInSurah}
+)
 
+</span>
 
-  /*
-    Common real Quran reciters.
-  */
+</div>
 
-  const candidates = [
+<div class="translation">
 
-    {
-      id:"ar.alafasy",
-      name:"Mishary Rashid Alafasy"
-    },
+<b>
+English Translation:
+</b>
 
-    {
-      id:"ar.abdulbasitmurattal",
-      name:"Abdul Basit Abdul Samad"
-    },
+<br><br>
 
-    {
-      id:"ar.abdullahbasfar",
-      name:"Abdullah Basfar"
-    },
+${translation.ayahs[i].text}
 
-    {
-      id:"ar.abdulsamad",
-      name:"Abdul Basit Abdul Samad"
-    },
+</div>
 
-    {
-      id:"ar.hudhaify",
-      name:"Ali Al-Hudhaify"
-    },
+</div>
 
-    {
-      id:"ar.abdurrahmaansudais",
-      name:"Abdul Rahman Al-Sudais"
-    },
-
-    {
-      id:"ar.saoodshuraym",
-      name:"Saud Al-Shuraim"
-    },
-
-    {
-      id:"ar.husary",
-      name:"Mahmoud Khalil Al-Husary"
-    },
-
-    {
-      id:"ar.minshawi",
-      name:"Mohamed Siddiq Al-Minshawi"
-    },
-
-    {
-      id:"ar.muhammadayyoub",
-      name:"Muhammad Ayyoub"
-    },
-
-    {
-      id:"ar.mahermuaiqly",
-      name:"Maher Al-Muaiqly"
-    }
-
-  ];
-
-
-  const available = [];
-
-
-  /*
-    Test several URLs in parallel.
-  */
-
-  await Promise.all(
-
-    candidates.map(async qari => {
-
-      const url =
-        "https://cdn.islamic.network/quran/audio-surah/128/" +
-        encodeURIComponent(qari.id) +
-        "/" +
-        surahNumber +
-        ".mp3";
-
-
-      try{
-
-        const response =
-          await fetch(
-            url,
-            {
-              method:"HEAD",
-              cache:"no-store"
-            }
-          );
-
-
-        if(response.ok){
-
-          available.push(qari);
-
-        }
-
-      }catch(error){
-
-        /*
-          Some browsers/CDNs don't allow HEAD.
-          We don't add the Qari here because
-          we only want confirmed availability.
-        */
-
-      }
-
-    })
-
-  );
-
-
-  /*
-    Sort in the original order.
-  */
-
-  available.sort(
-    (a,b) =>
-      candidates.indexOf(a) -
-      candidates.indexOf(b)
-  );
-
-
-  select.innerHTML = "";
-
-
-  if(available.length === 0){
-
-    select.innerHTML =
-      '<option value="">No available Qari found</option>';
-
-    status.innerHTML =
-      "⚠️ No Qari could be confirmed right now.";
-
-    return;
-
-  }
-
-
-  select.innerHTML =
-    '<option value="">Select Qari</option>';
-
-
-  available.forEach(qari => {
-
-    const option =
-      document.createElement(
-        "option"
-      );
-
-    option.value =
-      qari.id;
-
-    option.textContent =
-      qari.name;
-
-    select.appendChild(option);
-
-  });
-
-
-  select.value =
-    available[0].id;
-
-
-  status.innerHTML =
-    "🎧 " +
-    available.length +
-    " Qari(s) available for this Surah";
+`;
 
 }
 
 
-/* =========================================================
-   OPEN SURAH
-========================================================= */
+document.getElementById("ayahs")
+.innerHTML = html;
 
-async function openSurah(number){
+updateFont();
 
-  currentSurah = number;
+})
 
+.catch(()=>{
 
-  stopAudio();
+document.getElementById("ayahs")
+.innerHTML =
+"<div class='loading'>❌ Quran could not load.</div>";
 
-
-  document.getElementById(
-    "home"
-  ).style.display = "none";
-
-
-  document.getElementById(
-    "hero"
-  ).style.display = "none";
-
-
-  document.getElementById(
-    "reader"
-  ).style.display = "block";
-
-
-  document.getElementById(
-    "namazPage"
-  ).style.display = "none";
-
-
-  document.getElementById(
-    "hadithPage"
-  ).style.display = "none";
-
-
-  document.getElementById(
-    "ayahs"
-  ).innerHTML =
-    "<div class='loading'>📖 Loading Quran...</div>";
-
-
-  document.getElementById(
-    "surahTitle"
-  ).innerHTML =
-    "📖 Loading Surah...";
-
-
-  /*
-    Load available Qaris specifically for
-    this Surah.
-  */
-
-  loadQarisForSurah(number);
-
-
-  window.scrollTo(0,0);
-
-
-  /*
-    Load Arabic + English translation.
-  */
-
-  try{
-
-    const response =
-      await fetch(
-        "https://api.alquran.cloud/v1/surah/" +
-        number +
-        "/editions/quran-uthmani,en.asad"
-      );
-
-
-    const data =
-      await response.json();
-
-
-    const arabic =
-      data.data[0];
-
-    const translation =
-      data.data[1];
-
-
-    document.getElementById(
-      "surahTitle"
-    ).innerHTML =
-      arabic.number +
-      ". " +
-      arabic.englishName +
-      " — " +
-      arabic.name;
-
-
-    let html = "";
-
-
-    for(
-      let i = 0;
-      i < arabic.ayahs.length;
-      i++
-    ){
-
-      html += `
-
-        <div class="ayah">
-
-          <div
-            class="arabic"
-            style="font-size:${arabicFontSize}px">
-
-            ${arabic.ayahs[i].text}
-
-            <span class="ayah-number">
-              (${arabic.ayahs[i].numberInSurah})
-            </span>
-
-          </div>
-
-          <div class="translation">
-
-            <b>
-              English Translation:
-            </b>
-
-            <br><br>
-
-            ${translation.ayahs[i].text}
-
-          </div>
-
-        </div>
-
-      `;
-
-    }
-
-
-    document.getElementById(
-      "ayahs"
-    ).innerHTML = html;
-
-
-    updateFont();
-
-
-  }catch(error){
-
-    console.error(error);
-
-
-    document.getElementById(
-      "ayahs"
-    ).innerHTML =
-      "<div class='loading'>❌ Quran could not load.</div>";
-
-  }
+});
 
 }
 
 
-/* =========================================================
-   PLAY AUDIO
-========================================================= */
+/* ================= AUDIO ================= */
+
+/*
+  Qari list fixed hai.
+  Detection nahi ki ja rahi.
+  Har Surah ke liye selected Qari ka
+  direct audio URL banaya jata hai.
+*/
 
 function playAudio(){
 
-  const qari =
-    document.getElementById(
-      "qariSelect"
-    ).value;
+const qari =
+document.getElementById("qariSelect")
+.value;
+
+const audio =
+document.getElementById("quranAudio");
+
+const status =
+document.getElementById("audioStatus");
 
 
-  const audio =
-    document.getElementById(
-      "quranAudio"
-    );
+if(!qari){
 
+status.innerHTML =
+"⚠️ Please select a Qari.";
 
-  const status =
-    document.getElementById(
-      "audioStatus"
-    );
-
-
-  if(!qari){
-
-    status.innerHTML =
-      "⚠️ Please select a Qari.";
-
-    return;
-
-  }
-
-
-  /*
-    Official Al Quran Cloud CDN
-    Surah audio pattern.
-  */
-
-  const url =
-    "https://cdn.islamic.network/quran/audio-surah/128/" +
-    encodeURIComponent(qari) +
-    "/" +
-    currentSurah +
-    ".mp3";
-
-
-  status.innerHTML =
-    "🔎 Loading Qari audio...";
-
-
-  audio.pause();
-
-
-  audio.src = url;
-
-
-  audio.load();
-
-
-  audio.oncanplay = function(){
-
-    status.innerHTML =
-      "▶️ " +
-      getSelectedQariName() +
-      " is ready to play.";
-
-  };
-
-
-  audio.onerror = function(){
-
-    status.innerHTML =
-      "❌ This recording could not be played. Please select another available Qari.";
-
-  };
-
-
-  audio.play()
-
-    .then(() => {
-
-      status.innerHTML =
-        "▶️ Playing: " +
-        getSelectedQariName();
-
-    })
-
-    .catch(() => {
-
-      status.innerHTML =
-        "🎧 Audio loaded. Press the Play button on the audio player.";
-
-    });
+return;
 
 }
 
 
-/* =========================================================
-   GET SELECTED QARI NAME
-========================================================= */
-
-function getSelectedQariName(){
-
-  const select =
-    document.getElementById(
-      "qariSelect"
-    );
+status.innerHTML =
+"🔎 Loading Qari audio...";
 
 
-  if(
-    select.selectedIndex < 0
-  ){
+/*
+  Islamic Network CDN.
+  128 kbps Surah audio.
+*/
 
-    return "Qari";
+const url =
+"https://cdn.islamic.network/quran/audio-surah/128/"
++
+encodeURIComponent(qari)
++
+"/"
++
+currentSurah
++
+".mp3";
 
-  }
+
+audio.pause();
+
+audio.src = url;
+
+audio.load();
 
 
-  return (
-    select.options[
-      select.selectedIndex
-    ].textContent
-  );
+audio.oncanplay = function(){
+
+status.innerHTML =
+"🎧 Audio ready — Playing...";
+
+audio.play()
+.catch(()=>{
+
+status.innerHTML =
+"🎧 Audio loaded. Press Play.";
+
+});
+
+};
+
+
+audio.onerror = function(){
+
+status.innerHTML =
+"❌ This Qari's recording is not available for this Surah. Please try another Qari.";
+
+};
+
+
+audio.onended = function(){
+
+status.innerHTML =
+"✅ Audio finished.";
+
+};
+
+
+audio.play()
+.then(()=>{
+
+status.innerHTML =
+"▶️ Audio is playing";
+
+})
+.catch(()=>{
+
+/*
+  Browser autoplay block ki wajah se
+  agar play na ho to user manually play
+  button press kar sakta hai.
+*/
+
+});
 
 }
 
 
-/* =========================================================
-   STOP AUDIO
-========================================================= */
+/* ================= STOP AUDIO ================= */
 
 function stopAudio(){
 
-  const audio =
-    document.getElementById(
-      "quranAudio"
-    );
+const audio =
+document.getElementById("quranAudio");
 
+if(!audio) return;
 
-  if(!audio){
-    return;
-  }
+audio.pause();
 
+audio.removeAttribute("src");
 
-  audio.pause();
+audio.load();
 
+const status =
+document.getElementById("audioStatus");
 
-  audio.removeAttribute(
-    "src"
-  );
+if(status){
 
+status.innerHTML="";
 
-  audio.load();
-
-
-  const status =
-    document.getElementById(
-      "audioStatus"
-    );
-
-
-  if(status){
-
-    status.innerHTML = "";
-
-  }
+}
 
 }
 
 
-/* =========================================================
-   ESCAPE
-========================================================= */
+/* ================= ESCAPE ================= */
 
 document.addEventListener(
-  "keydown",
-  e => {
+"keydown",
+e=>{
 
-    if(e.key === "Escape"){
+if(e.key==="Escape"){
 
-      closeInfo();
+closeInfo();
 
-    }
+}
 
-  }
-);
+});
 
 </script>
 
