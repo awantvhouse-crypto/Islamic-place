@@ -4,27 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Islamic From iqra quran academy</title>
+<title>Iqra Quran Academy</title>
 
 <style>
-
-/* =========================
-   LIGHT MODE
-========================= */
 
 :root {
   --bg: #f5f1e8;
   --card: #ffffff;
   --text: #12352b;
   --primary: #063d2d;
-  --secondary: #e6c65c;
-  --translation: #555555;
-  --border: #dddddd;
+  --secondary: #d4af37;
+  --translation: #555;
+  --border: #ddd;
 }
-
-/* =========================
-   DARK MODE
-========================= */
 
 body.dark {
   --bg: #101817;
@@ -32,7 +24,7 @@ body.dark {
   --text: #f1f1f1;
   --primary: #0b6046;
   --secondary: #e6c65c;
-  --translation: #cccccc;
+  --translation: #ccc;
   --border: #34403d;
 }
 
@@ -48,9 +40,7 @@ body {
   transition: 0.3s;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header {
   background: var(--primary);
@@ -69,8 +59,6 @@ header p {
   margin: 8px 0 0;
 }
 
-/* DARK MODE BUTTON */
-
 .theme-btn {
   position: absolute;
   right: 20px;
@@ -81,19 +69,13 @@ header p {
   padding: 10px 15px;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero {
-  background: linear-gradient(
-    135deg,
-    #063d2d,
-    #0b6046
-  );
+  background: linear-gradient(135deg, #063d2d, #0b6046);
   color: white;
   text-align: center;
   padding: 45px 20px;
@@ -101,12 +83,12 @@ header p {
 
 .hero h2 {
   font-size: 32px;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
 .search-box {
   max-width: 650px;
-  margin: 25px auto;
+  margin: 25px auto 0;
 }
 
 .search-box input {
@@ -117,9 +99,7 @@ header p {
   font-size: 17px;
 }
 
-/* =========================
-   MAIN CONTENT
-========================= */
+/* MAIN */
 
 .container {
   max-width: 1100px;
@@ -130,17 +110,13 @@ header p {
 .title {
   text-align: center;
   margin-bottom: 25px;
-  color: var(--primary);
 }
 
-/* =========================
-   SURAH LIST
-========================= */
+/* SURAH GRID */
 
 .surah-grid {
   display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 15px;
 }
 
@@ -153,7 +129,7 @@ header p {
   gap: 15px;
   cursor: pointer;
   border: 1px solid var(--border);
-  transition: 0.3s;
+  transition: 0.25s;
 }
 
 .surah-card:hover {
@@ -191,27 +167,18 @@ header p {
   direction: rtl;
 }
 
-/* =========================
-   QURAN READER
-========================= */
+/* READER */
 
 #reader {
   display: none;
   max-width: 900px;
-  margin: 30px auto;
-  padding: 25px;
+  margin: auto;
+  padding: 25px 20px;
 }
 
 .reader-header {
   text-align: center;
-  margin-bottom: 25px;
 }
-
-.reader-header h2 {
-  color: var(--primary);
-}
-
-/* BACK BUTTON */
 
 .back-btn {
   background: var(--primary);
@@ -220,38 +187,78 @@ header p {
   padding: 12px 22px;
   border-radius: 25px;
   cursor: pointer;
+  font-size: 16px;
 }
 
-/* =========================
-   FONT CONTROLS
-========================= */
+/* CONTROLS */
+
+.controls-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 25px 0;
+  text-align: center;
+}
+
+.controls-box h3 {
+  margin-top: 0;
+}
+
+/* FONT BUTTONS */
 
 .font-controls {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  margin: 25px 0;
+  margin: 15px 0;
 }
 
 .font-controls button {
+  width: 55px;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
   background: var(--primary);
   color: var(--secondary);
-  border: none;
-  width: 50px;
-  height: 45px;
-  border-radius: 10px;
-  font-size: 24px;
   cursor: pointer;
+  font-size: 20px;
 }
 
-.font-controls span {
-  font-weight: bold;
+/* AUDIO */
+
+.audio-controls {
+  margin-top: 25px;
 }
 
-/* =========================
-   AYAH
-========================= */
+.audio-controls select {
+  width: 100%;
+  max-width: 450px;
+  padding: 13px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.audio-controls button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 13px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.audio-controls audio {
+  width: 100%;
+  max-width: 550px;
+  margin-top: 20px;
+}
+
+/* AYAH */
 
 .ayah {
   background: var(--card);
@@ -266,7 +273,6 @@ header p {
   line-height: 2;
   text-align: right;
   direction: rtl;
-  transition: font-size 0.2s;
 }
 
 .translation {
@@ -277,13 +283,11 @@ header p {
 
 .loading {
   text-align: center;
-  font-size: 20px;
   padding: 40px;
+  font-size: 20px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer {
   background: var(--primary);
@@ -297,9 +301,7 @@ footer h2 {
   color: var(--secondary);
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width: 600px) {
 
@@ -320,10 +322,6 @@ footer h2 {
     grid-template-columns: 1fr;
   }
 
-  .font-controls {
-    gap: 10px;
-  }
-
 }
 
 </style>
@@ -335,11 +333,13 @@ footer h2 {
 
 <header>
 
-  <button class="theme-btn" onclick="toggleDarkMode()" id="themeButton">
+  <button class="theme-btn"
+          id="themeButton"
+          onclick="toggleDarkMode()">
     🌙 Dark
   </button>
 
-  <h1>☪ </h1>
+  <h1>☪ IQRA QURAN ACADEMY</h1>
 
   <p>Read • Learn • Understand The Holy Quran</p>
 
@@ -348,7 +348,7 @@ footer h2 {
 
 <!-- HERO -->
 
-<section class="hero">
+<section class="hero" id="hero">
 
   <h2>📖 Read The Holy Quran</h2>
 
@@ -359,7 +359,7 @@ footer h2 {
     <input
       type="text"
       id="search"
-      placeholder="Search Surah... Example: Yaseen, Fatiha, 36"
+      placeholder="Search: Yaseen, Fatiha, 36..."
       onkeyup="searchSurah()"
     >
 
@@ -374,7 +374,9 @@ footer h2 {
 
   <h2 class="title">📖 All 114 Surahs</h2>
 
-  <div class="surah-grid" id="surahList"></div>
+  <div class="surah-grid" id="surahList">
+    <div class="loading">📖 Loading Surahs...</div>
+  </div>
 
 </div>
 
@@ -395,17 +397,131 @@ footer h2 {
   </div>
 
 
-  <!-- FONT SIZE BUTTONS -->
+  <!-- SETTINGS -->
 
-  <div class="font-controls">
+  <div class="controls-box">
 
-    <button onclick="decreaseFont()">A−</button>
+    <h3>⚙️ Reading Settings</h3>
 
-    <span id="fontSizeText">
-      Ayat Size
-    </span>
 
-    <button onclick="increaseFont()">A+</button>
+    <!-- FONT SIZE -->
+
+    <div class="font-controls">
+
+      <button onclick="decreaseFont()">A−</button>
+
+      <span id="fontSizeText">
+        Ayat: 30px
+      </span>
+
+      <button onclick="increaseFont()">A+</button>
+
+    </div>
+
+
+    <!-- QARI -->
+
+    <div class="audio-controls">
+
+      <h3>🎧 Select Qari</h3>
+
+      <select id="qariSelect">
+
+        <option value="ar.alafasy">
+          1. Mishary Rashid Alafasy
+        </option>
+
+        <option value="ar.abdulbasitmurattal">
+          2. Abdul Basit Abdul Samad
+        </option>
+
+        <option value="ar.hudhaify">
+          3. Ali Al-Hudhaify
+        </option>
+
+        <option value="ar.saoodshuraym">
+          4. Saud Al-Shuraim
+        </option>
+
+        <option value="ar.abdurrahmaansudais">
+          5. Abdul Rahman Al-Sudais
+        </option>
+
+        <option value="ar.mahermuaiqly">
+          6. Maher Al-Muaiqly
+        </option>
+
+        <option value="ar.ahmedajamy">
+          7. Ahmed Al-Ajmi
+        </option>
+
+        <option value="ar.abubakralshatri">
+          8. Abu Bakr Al-Shatri
+        </option>
+
+        <option value="ar.haniarrifai">
+          9. Hani Ar-Rifai
+        </option>
+
+        <option value="ar.muhammadayyoub">
+          10. Muhammad Ayyoub
+        </option>
+
+        <option value="ar.minshawi">
+          11. Muhammad Siddiq Al-Minshawi
+        </option>
+
+        <option value="ar.husary">
+          12. Mahmoud Khalil Al-Husary
+        </option>
+
+        <option value="ar.mahmoudalialbanna">
+          13. Mahmoud Ali Al-Banna
+        </option>
+
+        <option value="ar.muhammadjibreel">
+          14. Muhammad Jibreel
+        </option>
+
+        <option value="ar.yasserdosari">
+          15. Yasser Al-Dosari
+        </option>
+
+        <option value="ar.saadghamdi">
+          16. Saad Al-Ghamdi
+        </option>
+
+        <option value="ar.salahbudair">
+          17. Salah Al-Budair
+        </option>
+
+        <option value="ar.faresabbad">
+          18. فارس عباد
+        </option>
+
+        <option value="ar.khalidalqahtani">
+          19. Khalid Al-Qahtani
+        </option>
+
+        <option value="ar.muhammadabdulkareem">
+          20. Muhammad Abdul Kareem
+        </option>
+
+      </select>
+
+      <br>
+
+      <button onclick="playAudio()">
+        ▶ Play Selected Qari
+      </button>
+
+      <br>
+
+      <audio id="quranAudio" controls>
+        Your browser does not support audio.
+      </audio>
+
+    </div>
 
   </div>
 
@@ -421,16 +537,27 @@ footer h2 {
 
 <footer>
 
-  <h2>☪ Islamic From iqra quran academy</h2>
+  <h2>☪ IQRA QURAN ACADEMY</h2>
 
-  <p>Learn Quran Online With Tajweed & Translation</p>
+  <p>Read • Learn • Understand The Holy Quran</p>
 
-  <p>© Islamic From iqra quran academy</p>
+  <p>© 2026 Iqra Quran Academy</p>
 
 </footer>
 
 
 <script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+let surahs = [];
+
+let currentSurah = 1;
+
+let arabicFontSize = 30;
+
 
 /* =========================
    DARK MODE
@@ -440,7 +567,8 @@ function toggleDarkMode() {
 
   document.body.classList.toggle("dark");
 
-  let button = document.getElementById("themeButton");
+  const button =
+    document.getElementById("themeButton");
 
   if (document.body.classList.contains("dark")) {
 
@@ -472,13 +600,18 @@ if (localStorage.getItem("theme") === "dark") {
 
 
 /* =========================
-   FONT SIZE SYSTEM
+   FONT SIZE
 ========================= */
 
-let arabicFontSize = 30;
+const savedFont =
+  localStorage.getItem("arabicFontSize");
 
+if (savedFont) {
 
-/* INCREASE FONT */
+  arabicFontSize = parseInt(savedFont);
+
+}
+
 
 function increaseFont() {
 
@@ -486,14 +619,12 @@ function increaseFont() {
 
     arabicFontSize += 2;
 
-    updateFontSize();
+    updateFont();
 
   }
 
 }
 
-
-/* DECREASE FONT */
 
 function decreaseFont() {
 
@@ -501,29 +632,28 @@ function decreaseFont() {
 
     arabicFontSize -= 2;
 
-    updateFontSize();
+    updateFont();
 
   }
 
 }
 
 
-/* UPDATE FONT */
+function updateFont() {
 
-function updateFontSize() {
+  document
+    .querySelectorAll(".arabic")
+    .forEach(ayah => {
 
-  let arabicTexts =
-    document.querySelectorAll(".arabic");
+      ayah.style.fontSize =
+        arabicFontSize + "px";
 
-  arabicTexts.forEach(function(ayah) {
+    });
 
-    ayah.style.fontSize =
-      arabicFontSize + "px";
-
-  });
 
   document.getElementById("fontSizeText").innerHTML =
     "Ayat: " + arabicFontSize + "px";
+
 
   localStorage.setItem(
     "arabicFontSize",
@@ -533,25 +663,9 @@ function updateFontSize() {
 }
 
 
-/* LOAD SAVED FONT SIZE */
-
-let savedFontSize =
-  localStorage.getItem("arabicFontSize");
-
-if (savedFontSize) {
-
-  arabicFontSize =
-    parseInt(savedFontSize);
-
-}
-
-
 /* =========================
-   GET SURAHS
+   LOAD SURAHS
 ========================= */
-
-let surahs = [];
-
 
 fetch("https://api.alquran.cloud/v1/surah")
 
@@ -568,7 +682,7 @@ fetch("https://api.alquran.cloud/v1/surah")
 .catch(() => {
 
   document.getElementById("surahList").innerHTML =
-    "<p>Internet connection required to load Quran.</p>";
+    "<div class='loading'>❌ Unable to load Surahs. Check your internet.</div>";
 
 });
 
@@ -585,46 +699,39 @@ function displaySurahs(list) {
 
     html += `
 
-    <div
-      class="surah-card"
-      onclick="openSurah(${surah.number})"
-    >
+      <div class="surah-card"
+           onclick="openSurah(${surah.number})">
 
-      <div class="number">
+        <div class="number">
+          ${surah.number}
+        </div>
 
-        ${surah.number}
+        <div class="info">
 
-      </div>
+          <h3>
+            ${surah.englishName}
+          </h3>
 
+          <p>
+            ${surah.englishNameTranslation}
+            •
+            ${surah.numberOfAyahs} Ayahs
+          </p>
 
-      <div class="info">
+        </div>
 
-        <h3>
-          ${surah.englishName}
-        </h3>
-
-        <p>
-          ${surah.englishNameTranslation}
-          •
-          ${surah.numberOfAyahs} Ayahs
-        </p>
-
-      </div>
-
-
-      <div class="arabic-name">
-
-        ${surah.name}
+        <div class="arabic-name">
+          ${surah.name}
+        </div>
 
       </div>
-
-    </div>
 
     `;
 
   });
 
-  document.getElementById("surahList").innerHTML = html;
+  document.getElementById("surahList").innerHTML =
+    html;
 
 }
 
@@ -635,29 +742,35 @@ function displaySurahs(list) {
 
 function searchSurah() {
 
-  let search =
-    document
-      .getElementById("search")
-      .value
-      .toLowerCase();
+  const search =
+    document.getElementById("search")
+    .value
+    .toLowerCase()
+    .trim();
 
 
-  let filtered = surahs.filter(surah =>
+  const filtered =
+    surahs.filter(surah =>
 
-    surah.englishName
-      .toLowerCase()
-      .includes(search)
+      surah.englishName
+        .toLowerCase()
+        .includes(search)
 
-    ||
+      ||
 
-    surah.name.includes(search)
+      surah.englishNameTranslation
+        .toLowerCase()
+        .includes(search)
 
-    ||
+      ||
 
-    surah.number
-      .toString() === search
+      surah.name.includes(search)
 
-  );
+      ||
+
+      surah.number.toString() === search
+
+    );
 
 
   displaySurahs(filtered);
@@ -671,10 +784,13 @@ function searchSurah() {
 
 function openSurah(number) {
 
+  currentSurah = number;
+
+
   document.getElementById("home").style.display =
     "none";
 
-  document.querySelector(".hero").style.display =
+  document.getElementById("hero").style.display =
     "none";
 
   document.getElementById("reader").style.display =
@@ -683,6 +799,9 @@ function openSurah(number) {
 
   document.getElementById("ayahs").innerHTML =
     "<div class='loading'>📖 Loading Quran...</div>";
+
+
+  window.scrollTo(0, 0);
 
 
   fetch(
@@ -695,9 +814,9 @@ function openSurah(number) {
 
   .then(data => {
 
-    let arabicSurah = data.data[0];
+    const arabicSurah = data.data[0];
 
-    let translationSurah = data.data[1];
+    const translationSurah = data.data[1];
 
 
     document.getElementById("surahTitle").innerHTML =
@@ -718,43 +837,38 @@ function openSurah(number) {
       i++
     ) {
 
-
       html += `
 
-      <div class="ayah">
+        <div class="ayah">
 
+          <div class="arabic"
+               style="font-size:${arabicFontSize}px">
 
-        <div
-          class="arabic"
-          style="font-size:${arabicFontSize}px"
-        >
+            ${arabicSurah.ayahs[i].text}
 
-          ${arabicSurah.ayahs[i].text}
-
-          <span
-            style="
-              color:#b38b00;
+            <span style="
+              color:#d4af37;
               font-size:18px;
-            "
-          >
-            (${arabicSurah.ayahs[i].numberInSurah})
-          </span>
+            ">
+
+              (${arabicSurah.ayahs[i].numberInSurah})
+
+            </span>
+
+          </div>
+
+
+          <div class="translation">
+
+            <b>Translation:</b>
+
+            <br><br>
+
+            ${translationSurah.ayahs[i].text}
+
+          </div>
 
         </div>
-
-
-        <div class="translation">
-
-          <b>Translation:</b>
-
-          <br>
-
-          ${translationSurah.ayahs[i].text}
-
-        </div>
-
-
-      </div>
 
       `;
 
@@ -770,14 +884,12 @@ function openSurah(number) {
       arabicFontSize +
       "px";
 
-
   })
 
   .catch(() => {
 
     document.getElementById("ayahs").innerHTML =
-
-      "<div class='loading'>❌ Quran could not be loaded. Please check your internet connection.</div>";
+      "<div class='loading'>❌ Could not load Quran.</div>";
 
   });
 
@@ -785,7 +897,55 @@ function openSurah(number) {
 
 
 /* =========================
-   BACK
+   PLAY AUDIO
+========================= */
+
+function playAudio() {
+
+  const qari =
+    document.getElementById("qariSelect").value;
+
+  const audio =
+    document.getElementById("quranAudio");
+
+
+  /*
+    Audio API request.
+    We load the selected Surah
+    using the selected Qari edition.
+  */
+
+
+  audio.src =
+    "https://api.alquran.cloud/v1/surah/" +
+    currentSurah +
+    "/" +
+    qari;
+
+
+  /*
+    NOTE:
+    Different Qari editions may have
+    different availability on the API.
+  */
+
+
+  alert(
+    "Selected Qari: " +
+    document
+      .getElementById("qariSelect")
+      .options[
+        document.getElementById("qariSelect").selectedIndex
+      ]
+      .text +
+    "\n\nAudio source is being loaded."
+  );
+
+}
+
+ 
+/* =========================
+   BACK TO HOME
 ========================= */
 
 function goBack() {
@@ -793,11 +953,19 @@ function goBack() {
   document.getElementById("home").style.display =
     "block";
 
-  document.querySelector(".hero").style.display =
+  document.getElementById("hero").style.display =
     "block";
 
   document.getElementById("reader").style.display =
     "none";
+
+
+  const audio =
+    document.getElementById("quranAudio");
+
+  audio.pause();
+
+  audio.currentTime = 0;
 
 
   window.scrollTo({
