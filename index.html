@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Iqra Quran Academy</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f1e8;
+  color: #12352b;
+}
+
+header {
+  background: #063d2d;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+header h1 {
+  margin: 0;
+  color: #e6c65c;
+}
+
+header p {
+  margin: 8px 0 0;
+}
+
+.hero {
+  background: linear-gradient(135deg, #063d2d, #0b6046);
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+}
+
+.hero h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.search-box {
+  max-width: 650px;
+  margin: 25px auto;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 30px;
+  border: none;
+  font-size: 17px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #063d2d;
+}
+
+.surah-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 15px;
+}
+
+.surah-card {
+  background: white;
+  border-radius: 15px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+.surah-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.number {
+  width: 45px;
+  height: 45px;
+  background: #063d2d;
+  color: #e6c65c;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h3 {
+  margin: 0;
+}
+
+.info p {
+  margin: 5px 0 0;
+  color: gray;
+}
+
+.arabic-name {
+  font-size: 25px;
+  direction: rtl;
+}
+
+/* Quran Reader */
+
+#reader {
+  display: none;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px;
+}
+
+.reader-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.reader-header h2 {
+  color: #063d2d;
+}
+
+.back-btn {
+  background: #063d2d;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.ayah {
+  background: white;
+  margin-bottom: 15px;
+  padding: 25px;
+  border-radius: 15px;
+  border-right: 5px solid #e6c65c;
+}
+
+.arabic {
+  font-size: 30px;
+  line-height: 2;
+  text-align: right;
+  direction: rtl;
+}
+
+.translation {
+  margin-top: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.loading {
+  text-align: center;
+  font-size: 20px;
+  padding: 40px;
+}
+
+footer {
+  background: #063d2d;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  margin-top: 50px;
+}
+
+footer h2 {
+  color: #e6c65c;
+}
+
+@media(max-width: 600px) {
+
+  .hero h2 {
+    font-size: 25px;
+  }
+
+  .arabic {
+    font-size: 24px;
+  }
+
+  .surah-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>☪ IQRA QURAN ACADEMY</h1>
+  <p>Read • Learn • Understand The Holy Quran</p>
+</header>
+
+
+<section class="hero">
+
+  <h2>📖 Read The Holy Quran</h2>
+
+  <p>Search any Surah by name or number</p>
+
+  <div class="search-box">
+    <input
+      type="text"
+      id="search"
+      placeholder="Search Surah... Example: Yaseen, Fatiha, 36"
+      onkeyup="searchSurah()"
+    >
+  </div>
+
+</section>
+
+
+<div class="container" id="home">
+
+  <h2 class="title">📖 All 114 Surahs</h2>
+
+  <div class="surah-grid" id="surahList"></div>
+
+</div>
+
+
+<div id="reader">
+
+  <button class="back-btn" onclick="goBack()">
+    ← Back to Surahs
+  </button>
+
+  <div class="reader-header">
+    <h2 id="surahTitle"></h2>
+  </div>
+
+  <div id="ayahs"></div>
+
+</div>
+
+
+<footer>
+
+  <h2>☪ IQRA QURAN ACADEMY</h2>
+
+  <p>Learn Quran Online With Tajweed & Translation</p>
+
+  <p>© 2026 Iqra Quran Academy</p>
+
+</footer>
+
+
+<script>
+
+/* GET ALL SURAHS */
+
+let surahs = [];
+
+fetch("https://api.alquran.cloud/v1/surah")
+.then(response => response.json())
+.then(data => {
+
+  surahs = data.data;
+
+  displaySurahs(surahs);
+
+})
+.catch(error => {
+
+  document.getElementById("surahList").innerHTML =
+  "<p>Internet connection required to load Quran.</p>";
+
+});
+
+
+/* DISPLAY SURAHS */
+
+function displaySurahs(list) {
+
+  let html = "";
+
+  list.forEach(surah => {
+
+    html += `
+    
+    <div class="surah-card" onclick="openSurah(${surah.number})">
+
+      <div class="number">
+        ${surah.number}
+      </div>
+
+      <div class="info">
+
+        <h3>${surah.englishName}</h3>
+
+        <p>
+          ${surah.englishNameTranslation}
+          • ${surah.numberOfAyahs} Ayahs
+        </p>
+
+      </div>
+
+      <div class="arabic-name">
+        ${surah.name}
+      </div>
+
+    </div>
+
+    `;
+
+  });
+
+  document.getElementById("surahList").innerHTML = html;
+
+}
+
+
+/* SEARCH SURAHS */
+
+function searchSurah() {
+
+  let search = document
+    .getElementById("search")
+    .value
+    .toLowerCase();
+
+  let filtered = surahs.filter(surah =>
+
+    surah.englishName.toLowerCase().includes(search) ||
+
+    surah.name.includes(search) ||
+
+    surah.number.toString() === search
+
+  );
+
+  displaySurahs(filtered);
+
+}
+
+
+/* OPEN SURAH */
+
+function openSurah(number) {
+
+  document.getElementById("home").style.display = "none";
+
+  document.querySelector(".hero").style.display = "none";
+
+  document.getElementById("reader").style.display = "block";
+
+  document.getElementById("ayahs").innerHTML =
+    "<div class='loading'>📖 Loading Quran...</div>";
+
+
+  /* Arabic Quran */
+
+  fetch(
+    "https://api.alquran.cloud/v1/surah/" +
+    number +
+    "/editions/quran-uthmani,en.asad"
+  )
+
+  .then(response => response.json())
+
+  .then(data => {
+
+    let arabicSurah = data.data[0];
+
+    let translationSurah = data.data[1];
+
+    document.getElementById("surahTitle").innerHTML =
+
+      arabicSurah.number +
+      ". " +
+      arabicSurah.englishName +
+      " — " +
+      arabicSurah.name;
+
+
+    let html = "";
+
+    for(let i = 0; i < arabicSurah.ayahs.length; i++) {
+
+      html += `
+
+      <div class="ayah">
+
+        <div class="arabic">
+
+          ${arabicSurah.ayahs[i].text}
+
+          <span style="color:#b38b00;font-size:18px;">
+            (${arabicSurah.ayahs[i].numberInSurah})
+          </span>
+
+        </div>
+
+
+        <div class="translation">
+
+          <b>Translation:</b><br>
+
+          ${translationSurah.ayahs[i].text}
+
+        </div>
+
+      </div>
+
+      `;
+
+    }
+
+    document.getElementById("ayahs").innerHTML = html;
+
+  })
+
+  .catch(error => {
+
+    document.getElementById("ayahs").innerHTML =
+
+      "<div class='loading'>❌ Quran could not be loaded. Please check your internet connection.</div>";
+
+  });
+
+}
+
+
+/* BACK BUTTON */
+
+function goBack() {
+
+  document.getElementById("home").style.display = "block";
+
+  document.querySelector(".hero").style.display = "block";
+
+  document.getElementById("reader").style.display = "none";
+
+  window.scrollTo(0, 0);
+
+}
+
+</script>
+
+</body>
+</html>
