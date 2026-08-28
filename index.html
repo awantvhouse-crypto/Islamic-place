@@ -7,6 +7,35 @@
 <title>Iqra Quran Academy</title>
 
 <style>
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+:root {
+  --bg: #f5f1e8;
+  --card: #ffffff;
+  --text: #12352b;
+  --primary: #063d2d;
+  --secondary: #e6c65c;
+  --translation: #555555;
+  --border: #dddddd;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark {
+  --bg: #101817;
+  --card: #192321;
+  --text: #f1f1f1;
+  --primary: #0b6046;
+  --secondary: #e6c65c;
+  --translation: #cccccc;
+  --border: #34403d;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -14,28 +43,57 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f5f1e8;
-  color: #12352b;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 header {
-  background: #063d2d;
+  background: var(--primary);
   color: white;
   text-align: center;
   padding: 25px;
+  position: relative;
 }
 
 header h1 {
   margin: 0;
-  color: #e6c65c;
+  color: var(--secondary);
 }
 
 header p {
   margin: 8px 0 0;
 }
 
+/* DARK MODE BUTTON */
+
+.theme-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: none;
+  background: var(--secondary);
+  color: #063d2d;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
-  background: linear-gradient(135deg, #063d2d, #0b6046);
+  background: linear-gradient(
+    135deg,
+    #063d2d,
+    #0b6046
+  );
   color: white;
   text-align: center;
   padding: 45px 20px;
@@ -59,6 +117,10 @@ header p {
   font-size: 17px;
 }
 
+/* =========================
+   MAIN CONTENT
+========================= */
+
 .container {
   max-width: 1100px;
   margin: auto;
@@ -68,37 +130,42 @@ header p {
 .title {
   text-align: center;
   margin-bottom: 25px;
-  color: #063d2d;
+  color: var(--primary);
 }
+
+/* =========================
+   SURAH LIST
+========================= */
 
 .surah-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns:
+    repeat(auto-fit, minmax(270px, 1fr));
   gap: 15px;
 }
 
 .surah-card {
-  background: white;
+  background: var(--card);
   border-radius: 15px;
   padding: 18px;
   display: flex;
   align-items: center;
   gap: 15px;
   cursor: pointer;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   transition: 0.3s;
 }
 
 .surah-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .number {
   width: 45px;
   height: 45px;
-  background: #063d2d;
-  color: #e6c65c;
+  min-width: 45px;
+  background: var(--primary);
+  color: var(--secondary);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -116,7 +183,7 @@ header p {
 
 .info p {
   margin: 5px 0 0;
-  color: gray;
+  opacity: 0.7;
 }
 
 .arabic-name {
@@ -124,7 +191,9 @@ header p {
   direction: rtl;
 }
 
-/* Quran Reader */
+/* =========================
+   QURAN READER
+========================= */
 
 #reader {
   display: none;
@@ -139,25 +208,57 @@ header p {
 }
 
 .reader-header h2 {
-  color: #063d2d;
+  color: var(--primary);
 }
 
+/* BACK BUTTON */
+
 .back-btn {
-  background: #063d2d;
+  background: var(--primary);
   color: white;
   border: none;
   padding: 12px 22px;
   border-radius: 25px;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
+/* =========================
+   FONT CONTROLS
+========================= */
+
+.font-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.font-controls button {
+  background: var(--primary);
+  color: var(--secondary);
+  border: none;
+  width: 50px;
+  height: 45px;
+  border-radius: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.font-controls span {
+  font-weight: bold;
+}
+
+/* =========================
+   AYAH
+========================= */
+
 .ayah {
-  background: white;
+  background: var(--card);
   margin-bottom: 15px;
   padding: 25px;
   border-radius: 15px;
-  border-right: 5px solid #e6c65c;
+  border-right: 5px solid var(--secondary);
 }
 
 .arabic {
@@ -165,12 +266,13 @@ header p {
   line-height: 2;
   text-align: right;
   direction: rtl;
+  transition: font-size 0.2s;
 }
 
 .translation {
   margin-top: 15px;
-  color: #555;
-  line-height: 1.6;
+  color: var(--translation);
+  line-height: 1.7;
 }
 
 .loading {
@@ -179,8 +281,12 @@ header p {
   padding: 40px;
 }
 
+/* =========================
+   FOOTER
+========================= */
+
 footer {
-  background: #063d2d;
+  background: var(--primary);
   color: white;
   text-align: center;
   padding: 30px;
@@ -188,34 +294,59 @@ footer {
 }
 
 footer h2 {
-  color: #e6c65c;
+  color: var(--secondary);
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width: 600px) {
 
-  .hero h2 {
-    font-size: 25px;
+  header {
+    padding-top: 65px;
   }
 
-  .arabic {
-    font-size: 24px;
+  .theme-btn {
+    top: 15px;
+    right: 15px;
+  }
+
+  .hero h2 {
+    font-size: 25px;
   }
 
   .surah-grid {
     grid-template-columns: 1fr;
   }
 
+  .font-controls {
+    gap: 10px;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
+
+  <button class="theme-btn" onclick="toggleDarkMode()" id="themeButton">
+    🌙 Dark
+  </button>
+
   <h1>☪ IQRA QURAN ACADEMY</h1>
+
   <p>Read • Learn • Understand The Holy Quran</p>
+
 </header>
 
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -224,16 +355,20 @@ footer h2 {
   <p>Search any Surah by name or number</p>
 
   <div class="search-box">
+
     <input
       type="text"
       id="search"
       placeholder="Search Surah... Example: Yaseen, Fatiha, 36"
       onkeyup="searchSurah()"
     >
+
   </div>
 
 </section>
 
+
+<!-- HOME -->
 
 <div class="container" id="home">
 
@@ -244,20 +379,45 @@ footer h2 {
 </div>
 
 
+<!-- QURAN READER -->
+
 <div id="reader">
 
   <button class="back-btn" onclick="goBack()">
     ← Back to Surahs
   </button>
 
+
   <div class="reader-header">
+
     <h2 id="surahTitle"></h2>
+
   </div>
+
+
+  <!-- FONT SIZE BUTTONS -->
+
+  <div class="font-controls">
+
+    <button onclick="decreaseFont()">A−</button>
+
+    <span id="fontSizeText">
+      Ayat Size
+    </span>
+
+    <button onclick="increaseFont()">A+</button>
+
+  </div>
+
+
+  <!-- AYAT -->
 
   <div id="ayahs"></div>
 
 </div>
 
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -272,12 +432,131 @@ footer h2 {
 
 <script>
 
-/* GET ALL SURAHS */
+/* =========================
+   DARK MODE
+========================= */
+
+function toggleDarkMode() {
+
+  document.body.classList.toggle("dark");
+
+  let button = document.getElementById("themeButton");
+
+  if (document.body.classList.contains("dark")) {
+
+    button.innerHTML = "☀️ Light";
+
+    localStorage.setItem("theme", "dark");
+
+  } else {
+
+    button.innerHTML = "🌙 Dark";
+
+    localStorage.setItem("theme", "light");
+
+  }
+
+}
+
+
+/* LOAD SAVED THEME */
+
+if (localStorage.getItem("theme") === "dark") {
+
+  document.body.classList.add("dark");
+
+  document.getElementById("themeButton").innerHTML =
+    "☀️ Light";
+
+}
+
+
+/* =========================
+   FONT SIZE SYSTEM
+========================= */
+
+let arabicFontSize = 30;
+
+
+/* INCREASE FONT */
+
+function increaseFont() {
+
+  if (arabicFontSize < 60) {
+
+    arabicFontSize += 2;
+
+    updateFontSize();
+
+  }
+
+}
+
+
+/* DECREASE FONT */
+
+function decreaseFont() {
+
+  if (arabicFontSize > 20) {
+
+    arabicFontSize -= 2;
+
+    updateFontSize();
+
+  }
+
+}
+
+
+/* UPDATE FONT */
+
+function updateFontSize() {
+
+  let arabicTexts =
+    document.querySelectorAll(".arabic");
+
+  arabicTexts.forEach(function(ayah) {
+
+    ayah.style.fontSize =
+      arabicFontSize + "px";
+
+  });
+
+  document.getElementById("fontSizeText").innerHTML =
+    "Ayat: " + arabicFontSize + "px";
+
+  localStorage.setItem(
+    "arabicFontSize",
+    arabicFontSize
+  );
+
+}
+
+
+/* LOAD SAVED FONT SIZE */
+
+let savedFontSize =
+  localStorage.getItem("arabicFontSize");
+
+if (savedFontSize) {
+
+  arabicFontSize =
+    parseInt(savedFontSize);
+
+}
+
+
+/* =========================
+   GET SURAHS
+========================= */
 
 let surahs = [];
 
+
 fetch("https://api.alquran.cloud/v1/surah")
+
 .then(response => response.json())
+
 .then(data => {
 
   surahs = data.data;
@@ -285,15 +564,18 @@ fetch("https://api.alquran.cloud/v1/surah")
   displaySurahs(surahs);
 
 })
-.catch(error => {
+
+.catch(() => {
 
   document.getElementById("surahList").innerHTML =
-  "<p>Internet connection required to load Quran.</p>";
+    "<p>Internet connection required to load Quran.</p>";
 
 });
 
 
-/* DISPLAY SURAHS */
+/* =========================
+   DISPLAY SURAHS
+========================= */
 
 function displaySurahs(list) {
 
@@ -302,26 +584,38 @@ function displaySurahs(list) {
   list.forEach(surah => {
 
     html += `
-    
-    <div class="surah-card" onclick="openSurah(${surah.number})">
+
+    <div
+      class="surah-card"
+      onclick="openSurah(${surah.number})"
+    >
 
       <div class="number">
+
         ${surah.number}
+
       </div>
+
 
       <div class="info">
 
-        <h3>${surah.englishName}</h3>
+        <h3>
+          ${surah.englishName}
+        </h3>
 
         <p>
           ${surah.englishNameTranslation}
-          • ${surah.numberOfAyahs} Ayahs
+          •
+          ${surah.numberOfAyahs} Ayahs
         </p>
 
       </div>
 
+
       <div class="arabic-name">
+
         ${surah.name}
+
       </div>
 
     </div>
@@ -335,45 +629,61 @@ function displaySurahs(list) {
 }
 
 
-/* SEARCH SURAHS */
+/* =========================
+   SEARCH
+========================= */
 
 function searchSurah() {
 
-  let search = document
-    .getElementById("search")
-    .value
-    .toLowerCase();
+  let search =
+    document
+      .getElementById("search")
+      .value
+      .toLowerCase();
+
 
   let filtered = surahs.filter(surah =>
 
-    surah.englishName.toLowerCase().includes(search) ||
+    surah.englishName
+      .toLowerCase()
+      .includes(search)
 
-    surah.name.includes(search) ||
+    ||
 
-    surah.number.toString() === search
+    surah.name.includes(search)
+
+    ||
+
+    surah.number
+      .toString() === search
 
   );
+
 
   displaySurahs(filtered);
 
 }
 
 
-/* OPEN SURAH */
+/* =========================
+   OPEN SURAH
+========================= */
 
 function openSurah(number) {
 
-  document.getElementById("home").style.display = "none";
+  document.getElementById("home").style.display =
+    "none";
 
-  document.querySelector(".hero").style.display = "none";
+  document.querySelector(".hero").style.display =
+    "none";
 
-  document.getElementById("reader").style.display = "block";
+  document.getElementById("reader").style.display =
+    "block";
+
 
   document.getElementById("ayahs").innerHTML =
     "<div class='loading'>📖 Loading Quran...</div>";
 
-
-  /* Arabic Quran */
 
   fetch(
     "https://api.alquran.cloud/v1/surah/" +
@@ -389,6 +699,7 @@ function openSurah(number) {
 
     let translationSurah = data.data[1];
 
+
     document.getElementById("surahTitle").innerHTML =
 
       arabicSurah.number +
@@ -400,17 +711,32 @@ function openSurah(number) {
 
     let html = "";
 
-    for(let i = 0; i < arabicSurah.ayahs.length; i++) {
+
+    for (
+      let i = 0;
+      i < arabicSurah.ayahs.length;
+      i++
+    ) {
+
 
       html += `
 
       <div class="ayah">
 
-        <div class="arabic">
+
+        <div
+          class="arabic"
+          style="font-size:${arabicFontSize}px"
+        >
 
           ${arabicSurah.ayahs[i].text}
 
-          <span style="color:#b38b00;font-size:18px;">
+          <span
+            style="
+              color:#b38b00;
+              font-size:18px;
+            "
+          >
             (${arabicSurah.ayahs[i].numberInSurah})
           </span>
 
@@ -419,11 +745,14 @@ function openSurah(number) {
 
         <div class="translation">
 
-          <b>Translation:</b><br>
+          <b>Translation:</b>
+
+          <br>
 
           ${translationSurah.ayahs[i].text}
 
         </div>
+
 
       </div>
 
@@ -431,11 +760,20 @@ function openSurah(number) {
 
     }
 
-    document.getElementById("ayahs").innerHTML = html;
+
+    document.getElementById("ayahs").innerHTML =
+      html;
+
+
+    document.getElementById("fontSizeText").innerHTML =
+      "Ayat: " +
+      arabicFontSize +
+      "px";
+
 
   })
 
-  .catch(error => {
+  .catch(() => {
 
     document.getElementById("ayahs").innerHTML =
 
@@ -446,17 +784,26 @@ function openSurah(number) {
 }
 
 
-/* BACK BUTTON */
+/* =========================
+   BACK
+========================= */
 
 function goBack() {
 
-  document.getElementById("home").style.display = "block";
+  document.getElementById("home").style.display =
+    "block";
 
-  document.querySelector(".hero").style.display = "block";
+  document.querySelector(".hero").style.display =
+    "block";
 
-  document.getElementById("reader").style.display = "none";
+  document.getElementById("reader").style.display =
+    "none";
 
-  window.scrollTo(0, 0);
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 
 }
 
