@@ -8,13 +8,14 @@
 <style>
 :root{
   --bg:#f5f1e8;
-  --card:#fff;
+  --card:#ffffff;
   --text:#12352b;
   --primary:#063d2d;
   --primary2:#0b6046;
   --gold:#d4af37;
   --muted:#777;
   --border:#ddd;
+  --green:#0b6046;
 }
 
 body.dark{
@@ -26,6 +27,7 @@ body.dark{
   --gold:#e6c65c;
   --muted:#aaa;
   --border:#35423e;
+  --green:#0d7656;
 }
 
 *{
@@ -44,13 +46,15 @@ body{
   transition:.3s;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header{
-  background:var(--primary);
+  background:linear-gradient(135deg,#063d2d,#0b6046);
   color:white;
   text-align:center;
   padding:25px 20px;
   position:relative;
+  box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
 .academy-title{
@@ -64,17 +68,21 @@ header{
   width:65px;
   height:65px;
   object-fit:cover;
-  border-radius:12px;
+  border-radius:14px;
+  border:3px solid var(--gold);
+  box-shadow:0 5px 20px rgba(0,0,0,.3);
 }
 
 .academy-title h1{
   margin:0;
   color:var(--gold);
   font-size:28px;
+  text-shadow:0 2px 5px rgba(0,0,0,.3);
 }
 
 header p{
-  margin:8px 0 0;
+  margin:10px 0 0;
+  font-size:16px;
 }
 
 .theme-btn,
@@ -83,6 +91,7 @@ header p{
   top:18px;
   border:0;
   cursor:pointer;
+  z-index:5;
 }
 
 .theme-btn{
@@ -92,6 +101,7 @@ header p{
   padding:10px 16px;
   border-radius:25px;
   font-weight:bold;
+  box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
 
 .info-btn{
@@ -102,19 +112,27 @@ header p{
   background:var(--gold);
   color:var(--primary);
   font-size:24px;
+  box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
 .hero{
-  background:linear-gradient(135deg,#063d2d,#0b6046);
+  background:
+    radial-gradient(circle at top right,rgba(212,175,55,.25),transparent 35%),
+    linear-gradient(135deg,#063d2d,#0b6046);
   color:white;
   text-align:center;
-  padding:45px 20px;
+  padding:50px 20px;
 }
 
 .hero h2{
   margin:0;
-  font-size:32px;
+  font-size:34px;
+}
+
+.hero p{
+  font-size:18px;
 }
 
 .search-box{
@@ -124,14 +142,16 @@ header p{
 
 .search-box input{
   width:100%;
-  padding:17px 22px;
-  border:0;
-  border-radius:30px;
+  padding:18px 24px;
+  border:3px solid var(--gold);
+  border-radius:35px;
   font-size:17px;
   outline:none;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
 
-/* MAIN */
+/* ================= MAIN ================= */
+
 .container{
   max-width:1150px;
   margin:auto;
@@ -143,7 +163,8 @@ header p{
   margin-bottom:25px;
 }
 
-/* THREE MAIN SECTIONS */
+/* ================= MAIN CARDS ================= */
+
 .main-sections{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -153,34 +174,42 @@ header p{
 
 .main-card{
   background:var(--card);
-  border:1px solid var(--border);
-  border-radius:20px;
+  border:2px solid var(--border);
+  border-radius:22px;
   padding:30px 20px;
   text-align:center;
   cursor:pointer;
   transition:.25s;
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
 .main-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  transform:translateY(-7px);
+  border-color:var(--gold);
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
 }
 
 .main-icon{
-  width:80px;
-  height:80px;
+  width:85px;
+  height:85px;
   margin:auto;
   border-radius:50%;
-  background:var(--primary);
+  background:linear-gradient(135deg,#063d2d,#0b6046);
   color:var(--gold);
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size:42px;
+  font-size:44px;
+  border:3px solid var(--gold);
 }
 
 .main-card h2{
   margin:18px 0 8px;
+  color:var(--primary2);
+}
+
+body.dark .main-card h2{
+  color:var(--gold);
 }
 
 .main-card p{
@@ -188,7 +217,8 @@ header p{
   line-height:1.6;
 }
 
-/* SURAHS */
+/* ================= SURAHS ================= */
+
 .surah-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -197,9 +227,9 @@ header p{
 
 .surah-card{
   background:var(--card);
-  border:1px solid var(--border);
+  border:2px solid var(--border);
   padding:18px;
-  border-radius:15px;
+  border-radius:17px;
   display:flex;
   align-items:center;
   gap:15px;
@@ -209,20 +239,22 @@ header p{
 
 .surah-card:hover{
   transform:translateY(-4px);
+  border-color:var(--gold);
   box-shadow:0 8px 25px rgba(0,0,0,.15);
 }
 
 .number{
-  width:48px;
-  height:48px;
-  min-width:48px;
+  width:50px;
+  height:50px;
+  min-width:50px;
   display:flex;
   justify-content:center;
   align-items:center;
   border-radius:50%;
-  background:var(--primary);
+  background:linear-gradient(135deg,#063d2d,#0b6046);
   color:var(--gold);
   font-weight:bold;
+  border:2px solid var(--gold);
 }
 
 .info{
@@ -242,9 +274,15 @@ header p{
 .arabic-name{
   font-size:27px;
   direction:rtl;
+  color:var(--primary2);
 }
 
-/* PAGES */
+body.dark .arabic-name{
+  color:var(--gold);
+}
+
+/* ================= PAGES ================= */
+
 #reader,
 #namazPage,
 #hadithPage{
@@ -255,9 +293,9 @@ header p{
 }
 
 .back-btn{
-  background:var(--primary);
+  background:linear-gradient(135deg,#063d2d,#0b6046);
   color:white;
-  border:0;
+  border:2px solid var(--gold);
   padding:12px 22px;
   border-radius:25px;
   cursor:pointer;
@@ -269,16 +307,18 @@ header p{
   margin:25px 0;
 }
 
+/* ================= CONTROLS ================= */
+
 .controls-box{
   background:var(--card);
-  border:1px solid var(--border);
-  border-radius:18px;
+  border:2px solid var(--border);
+  border-radius:20px;
   padding:22px;
   margin-bottom:25px;
   text-align:center;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
-/* FONT */
 .font-controls{
   display:flex;
   justify-content:center;
@@ -298,31 +338,44 @@ header p{
   cursor:pointer;
 }
 
-/* AUDIO */
+/* ================= QARI AUDIO ================= */
+
 .audio-controls{
   margin-top:30px;
   padding-top:20px;
-  border-top:1px solid var(--border);
+  border-top:2px solid var(--border);
+}
+
+.qari-count{
+  display:inline-block;
+  background:var(--gold);
+  color:var(--primary);
+  padding:7px 14px;
+  border-radius:20px;
+  font-weight:bold;
+  margin-bottom:12px;
 }
 
 .audio-controls select{
   width:100%;
   max-width:650px;
-  padding:14px;
-  border:1px solid var(--border);
-  border-radius:10px;
+  padding:15px;
+  border:2px solid var(--gold);
+  border-radius:12px;
   background:var(--bg);
   color:var(--text);
   font-size:16px;
+  outline:none;
 }
 
 .play-btn,
 .stop-btn{
   border:0;
-  padding:12px 20px;
+  padding:13px 20px;
   border-radius:25px;
   cursor:pointer;
   margin:8px 3px;
+  font-weight:bold;
 }
 
 .play-btn{
@@ -345,13 +398,15 @@ audio{
   font-weight:bold;
 }
 
-/* AYAT */
+/* ================= AYAT ================= */
+
 .ayah{
   background:var(--card);
-  border-radius:16px;
+  border-radius:17px;
   padding:25px;
   margin-bottom:16px;
-  border-right:5px solid var(--gold);
+  border-right:6px solid var(--gold);
+  box-shadow:0 5px 18px rgba(0,0,0,.06);
 }
 
 .arabic{
@@ -373,13 +428,15 @@ audio{
   line-height:1.7;
 }
 
-/* NAMAZ / HADITH */
+/* ================= CONTENT ================= */
+
 .content-card{
   background:var(--card);
-  border:1px solid var(--border);
+  border:2px solid var(--border);
   border-radius:18px;
   padding:22px;
   margin:15px 0;
+  box-shadow:0 5px 18px rgba(0,0,0,.06);
 }
 
 .content-card h2{
@@ -402,7 +459,8 @@ body.dark .content-card h2{
   line-height:2;
 }
 
-/* INFORMATION */
+/* ================= INFO ================= */
+
 .info-modal{
   position:fixed;
   inset:0;
@@ -499,9 +557,10 @@ body.dark .content-card h2{
   font-size:14px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
+
 footer{
-  background:var(--primary);
+  background:linear-gradient(135deg,#063d2d,#0b6046);
   color:white;
   text-align:center;
   padding:35px 20px;
@@ -512,14 +571,8 @@ footer h2{
   color:var(--gold);
 }
 
-/* LOADING */
-.loading{
-  text-align:center;
-  padding:30px;
-  font-size:18px;
-}
+/* ================= MOBILE ================= */
 
-/* MOBILE */
 @media(max-width:700px){
 
   header{
@@ -531,7 +584,7 @@ footer h2{
   }
 
   .hero h2{
-    font-size:25px;
+    font-size:26px;
   }
 
   .surah-grid{
@@ -565,13 +618,15 @@ footer h2{
     left:12px;
     top:12px;
   }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
+
 <header>
 
 <button
@@ -605,7 +660,8 @@ Read • Learn • Understand The Holy Quran
 </header>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
+
 <section class="hero" id="hero">
 
 <h2>📖 Islamic Learning</h2>
@@ -624,16 +680,17 @@ oninput="searchSurah()">
 </section>
 
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
+
 <div class="container" id="home">
 
 <h2 class="title">
 ☪ Islamic Place
 </h2>
 
+
 <div class="main-sections">
 
-<!-- QURAN -->
 <div class="main-card" onclick="showQuran()">
 
 <div class="main-icon">
@@ -650,7 +707,6 @@ English translation and Qari audio.
 </div>
 
 
-<!-- NAMAZ -->
 <div class="main-card" onclick="showNamaz()">
 
 <div class="main-icon">
@@ -667,7 +723,6 @@ important duas and prayer information.
 </div>
 
 
-<!-- HADITH -->
 <div class="main-card" onclick="showHadith()">
 
 <div class="main-icon">
@@ -686,7 +741,6 @@ important Islamic teachings.
 </div>
 
 
-<!-- QURAN LIST -->
 <div id="quranHome">
 
 <h2 class="title">
@@ -706,12 +760,14 @@ important Islamic teachings.
 </div>
 
 
-<!-- QURAN READER -->
+<!-- ================= QURAN READER ================= -->
+
 <div id="reader">
 
 <button class="back-btn" onclick="goHome()">
 ← Home
 </button>
+
 
 <div class="reader-header">
 
@@ -747,41 +803,107 @@ A+
 <div class="audio-controls">
 
 <h3>
-🎧 Qari Audio
+🎧 Quran Audio
 </h3>
 
-<p id="qariStatus">
-Select a Qari. Some recordings may not be available.
+<div class="qari-count">
+🎙️ 20 Qaris Available
+</div>
+
+<p>
+Select a Qari. Some Qaris may not have
+a recording for every Surah.
 </p>
 
 
 <select id="qariSelect">
 
 <option value="">
-Select Qari
+🎙️ Select Qari
 </option>
 
 <option value="ar.alafasy">
-Mishary Rashid Alafasy
+1. Mishary Rashid Alafasy
 </option>
 
 <option value="ar.abdulbasitmurattal">
-Abdul Basit Abdul Samad
+2. Abdul Basit Abdul Samad
+</option>
+
+<option value="ar.abdulbasitmujawwad">
+3. Abdul Basit Abdul Samad - Mujawwad
 </option>
 
 <option value="ar.hudhaify">
-Ali Al-Hudhaify
+4. Ali Al-Hudhaify
 </option>
 
 <option value="ar.abdurrahmaansudais">
-Abdul Rahman Al-Sudais
+5. Abdul Rahman Al-Sudais
 </option>
 
 <option value="ar.saoodshuraym">
-Saud Al-Shuraim
+6. Saud Al-Shuraim
+</option>
+
+<option value="ar.mahermuaiqly">
+7. Maher Al-Muaiqly
+</option>
+
+<option value="ar.minshawi">
+8. Muhammad Siddiq Al-Minshawi
+</option>
+
+<option value="ar.minshawimujawwad">
+9. Muhammad Siddiq Al-Minshawi - Mujawwad
+</option>
+
+<option value="ar.husary">
+10. Mahmoud Khalil Al-Husary
+</option>
+
+<option value="ar.husarymujawwad">
+11. Mahmoud Khalil Al-Husary - Mujawwad
+</option>
+
+<option value="ar.ahmedajamy">
+12. Ahmed Al-Ajmi
+</option>
+
+<option value="ar.muhammadayyoub">
+13. Muhammad Ayyoub
+</option>
+
+<option value="ar.aymanswoaid">
+14. Ayman Al-Suwaid
+</option>
+
+<option value="ar.ibrahimakhbar">
+15. Ibrahim Al-Akhdar
+</option>
+
+<option value="ar.abdullahbasfar">
+16. Abdullah Basfar
+</option>
+
+<option value="ar.abdullahmatroud">
+17. Abdullah Al-Matrood
+</option>
+
+<option value="ar.yasser">
+18. Yasser Al-Dosari
+</option>
+
+<option value="ar.fares">
+19. Fares Abbad
+</option>
+
+<option value="ar.nasser">
+20. Nasser Al-Qatami
 </option>
 
 </select>
+
 
 <br>
 
@@ -791,6 +913,7 @@ class="play-btn"
 onclick="playAudio()">
 ▶ Play Selected Qari
 </button>
+
 
 <button
 class="stop-btn"
@@ -807,6 +930,7 @@ Your browser does not support audio.
 
 </audio>
 
+
 <p id="audioStatus"></p>
 
 </div>
@@ -819,12 +943,14 @@ Your browser does not support audio.
 </div>
 
 
-<!-- NAMAZ PAGE -->
+<!-- ================= NAMAZ PAGE ================= -->
+
 <div id="namazPage">
 
 <button class="back-btn" onclick="goHome()">
 ← Home
 </button>
+
 
 <div class="reader-header">
 
@@ -839,9 +965,7 @@ Basic information about daily prayer
 
 <div class="content-card">
 
-<h2>
-🕋 Five Daily Prayers
-</h2>
+<h2>🕋 Five Daily Prayers</h2>
 
 <ul>
 
@@ -872,9 +996,7 @@ Basic information about daily prayer
 
 <div class="content-card">
 
-<h2>
-🤲 Important Dua
-</h2>
+<h2>🤲 Important Dua</h2>
 
 <p class="arabic-large">
 رَبِّ اغْفِرْ لِي وَارْحَمْنِي
@@ -889,9 +1011,7 @@ My Lord, forgive me and have mercy upon me.
 
 <div class="content-card">
 
-<h2>
-📿 Before Namaz
-</h2>
+<h2>📿 Before Namaz</h2>
 
 <p>
 Make sure you have performed Wudu,
@@ -904,39 +1024,23 @@ and face the Qiblah.
 
 <div class="content-card">
 
-<h2>
-🕌 Main Steps
-</h2>
+<h2>🕌 Main Steps</h2>
 
 <ol>
 
-<li>
-Make intention for the prayer.
-</li>
+<li>Make intention for the prayer.</li>
 
-<li>
-Stand facing the Qiblah.
-</li>
+<li>Stand facing the Qiblah.</li>
 
-<li>
-Begin the prayer with Takbir.
-</li>
+<li>Begin the prayer with Takbir.</li>
 
-<li>
-Recite the required Quranic passages.
-</li>
+<li>Recite the required Quranic passages.</li>
 
-<li>
-Perform Ruku and Sujood.
-</li>
+<li>Perform Ruku and Sujood.</li>
 
-<li>
-Complete the required Rakahs.
-</li>
+<li>Complete the required Rakahs.</li>
 
-<li>
-Finish with Salam.
-</li>
+<li>Finish with Salam.</li>
 
 </ol>
 
@@ -945,12 +1049,14 @@ Finish with Salam.
 </div>
 
 
-<!-- HADITH PAGE -->
+<!-- ================= HADITH PAGE ================= -->
+
 <div id="hadithPage">
 
 <button class="back-btn" onclick="goHome()">
 ← Home
 </button>
+
 
 <div class="reader-header">
 
@@ -965,9 +1071,7 @@ Selected Islamic teachings
 
 <div class="content-card">
 
-<h2>
-🌙 Intention
-</h2>
+<h2>🌙 Intention</h2>
 
 <p>
 Actions are judged by intentions.
@@ -980,9 +1084,7 @@ a sincere intention for Allah.
 
 <div class="content-card">
 
-<h2>
-😊 Good Character
-</h2>
+<h2>😊 Good Character</h2>
 
 <p>
 Islam encourages kindness, honesty,
@@ -995,9 +1097,7 @@ of other people.
 
 <div class="content-card">
 
-<h2>
-🤝 Helping Others
-</h2>
+<h2>🤝 Helping Others</h2>
 
 <p>
 Helping people, speaking kindly and
@@ -1010,9 +1110,7 @@ parts of good Islamic character.
 
 <div class="content-card">
 
-<h2>
-❤️ Mercy
-</h2>
+<h2>❤️ Mercy</h2>
 
 <p>
 A Muslim should try to show mercy,
@@ -1024,9 +1122,7 @@ forgiveness and kindness to others.
 
 <div class="content-card">
 
-<h2>
-📚 Learn More
-</h2>
+<h2>📚 Learn More</h2>
 
 <p>
 For detailed Hadith study, use reliable
@@ -1039,7 +1135,8 @@ Hadith collections.
 </div>
 
 
-<!-- INFORMATION MODAL -->
+<!-- ================= INFO MODAL ================= -->
+
 <div
 id="infoModal"
 class="info-modal"
@@ -1066,7 +1163,7 @@ About This Website
 
 <p>
 Information about Quran, Qaris,
-audio and the Islamic sections.
+audio and Islamic sections.
 </p>
 
 </div>
@@ -1107,9 +1204,8 @@ Qari Audio
 </div>
 
 <div class="info-card-text">
-Different Qaris are available.
-Some recordings may not be available
-for every Surah.
+20 Qari options are listed. Availability
+can vary by Surah and recording.
 </div>
 
 </div>
@@ -1152,8 +1248,8 @@ Namaz
 </div>
 
 <div class="info-card-text">
-The Namaz section provides basic
-prayer information and learning material.
+Basic prayer information and learning
+material is provided.
 </div>
 
 </div>
@@ -1174,8 +1270,7 @@ Hadith
 </div>
 
 <div class="info-card-text">
-The Hadith section contains selected
-Islamic teachings and reminders.
+Selected Islamic teachings and reminders.
 </div>
 
 </div>
@@ -1219,8 +1314,8 @@ Mobile Friendly
 </div>
 
 <div class="info-card-text">
-The website is designed to work on
-phones, tablets and computers.
+The website works on phones, tablets
+and computers.
 </div>
 
 </div>
@@ -1232,7 +1327,8 @@ phones, tablets and computers.
 </div>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
 <h2>
@@ -1653,7 +1749,6 @@ document.getElementById("ayahs")
 document.getElementById("audioStatus")
 .innerHTML="";
 
-
 stopAudio();
 
 window.scrollTo(0,0);
@@ -1709,11 +1804,9 @@ style="font-size:${arabicFontSize}px">
 ${arabic.ayahs[i].text}
 
 <span class="ayah-number">
-
 (
 ${arabic.ayahs[i].numberInSurah}
 )
-
 </span>
 
 </div>
@@ -1755,20 +1848,12 @@ document.getElementById("ayahs")
 }
 
 
-/* ================= AUDIO ================= */
-
-/*
-  Qari list fixed hai.
-  Detection nahi ki ja rahi.
-  Har Surah ke liye selected Qari ka
-  direct audio URL banaya jata hai.
-*/
+/* ================= QARI AUDIO ================= */
 
 function playAudio(){
 
 const qari =
-document.getElementById("qariSelect")
-.value;
+document.getElementById("qariSelect").value;
 
 const audio =
 document.getElementById("quranAudio");
@@ -1792,8 +1877,9 @@ status.innerHTML =
 
 
 /*
-  Islamic Network CDN.
-  128 kbps Surah audio.
+  Quran audio source.
+  The selected Qari identifier is used
+  to request the Surah recording.
 */
 
 const url =
@@ -1818,13 +1904,13 @@ audio.load();
 audio.oncanplay = function(){
 
 status.innerHTML =
-"🎧 Audio ready — Playing...";
+"🎧 Qari audio ready — Playing...";
 
 audio.play()
 .catch(()=>{
 
 status.innerHTML =
-"🎧 Audio loaded. Press Play.";
+"🎧 Audio loaded. Press the play button.";
 
 });
 
@@ -1834,7 +1920,7 @@ status.innerHTML =
 audio.onerror = function(){
 
 status.innerHTML =
-"❌ This Qari's recording is not available for this Surah. Please try another Qari.";
+"❌ This Qari's audio is not available for this Surah. Try another Qari.";
 
 };
 
@@ -1856,12 +1942,6 @@ status.innerHTML =
 })
 .catch(()=>{
 
-/*
-  Browser autoplay block ki wajah se
-  agar play na ho to user manually play
-  button press kar sakta hai.
-*/
-
 });
 
 }
@@ -1881,6 +1961,7 @@ audio.pause();
 audio.removeAttribute("src");
 
 audio.load();
+
 
 const status =
 document.getElementById("audioStatus");
