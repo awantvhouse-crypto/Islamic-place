@@ -620,6 +620,83 @@ footer h2{
   }
 
 }
+  /* ================= AUTO SCROLL ================= */
+
+.scroll-controls{
+  margin-top:20px;
+  padding-top:20px;
+  border-top:2px solid var(--border);
+  text-align:center;
+}
+
+.scroll-controls select{
+  width:100%;
+  max-width:300px;
+  padding:12px;
+  border:2px solid var(--gold);
+  border-radius:10px;
+  background:var(--bg);
+  color:var(--text);
+  font-size:16px;
+}
+
+.scroll-btn{
+  border:0;
+  padding:12px 20px;
+  margin:8px 3px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+  background:var(--primary);
+  color:white;
+}
+
+.scroll-stop{
+  background:#8b3030;
+}
+  /* ================= AUTO SCROLL ================= */
+
+let autoScrollActive = false;
+let autoScrollAnimation = null;
+
+function startAutoScroll(){
+
+  if(autoScrollActive) return;
+
+  autoScrollActive = true;
+
+  const speed =
+    parseFloat(
+      document.getElementById("scrollSpeed").value
+    );
+
+  function scrollPage(){
+
+    if(!autoScrollActive) return;
+
+    window.scrollBy(0, speed);
+
+    autoScrollAnimation =
+      requestAnimationFrame(scrollPage);
+  }
+
+  scrollPage();
+}
+
+
+function stopAutoScroll(){
+
+  autoScrollActive = false;
+
+  if(autoScrollAnimation){
+
+    cancelAnimationFrame(autoScrollAnimation);
+
+    autoScrollAnimation = null;
+
+  }
+
+}
 </style>
 </head>
 
@@ -940,6 +1017,37 @@ Your browser does not support audio.
 
 
 <p id="audioStatus"></p>
+  <!-- AUTOMATIC SCROLL -->
+<div class="scroll-controls">
+
+  <h3>📜 Automatic Scroll</h3>
+
+  <p>
+    Page will scroll automatically while the Qari is playing.
+  </p>
+
+  <select id="scrollSpeed">
+    <option value="0.5">🐢 Very Slow</option>
+    <option value="1" selected>🚶 Slow</option>
+    <option value="1.5">🏃 Medium</option>
+    <option value="2">⚡ Fast</option>
+  </select>
+
+  <br>
+
+  <button
+    class="scroll-btn"
+    onclick="startAutoScroll()">
+    ▶ Start Scroll
+  </button>
+
+  <button
+    class="scroll-btn scroll-stop"
+    onclick="stopAutoScroll()">
+    ⏹ Stop Scroll
+  </button>
+
+</div>
 
 </div>
 
@@ -1355,6 +1463,8 @@ Read • Learn • Understand The Holy Quran
 
 
 <script>
+  let autoScrollActive = false;
+let autoScrollAnimation = null;
 
 /* ================= VARIABLES ================= */
 
@@ -1725,6 +1835,51 @@ behavior:"smooth"
 });
 
 }
+  /* ================= AUTO SCROLL ================= */
+
+function startAutoScroll(){
+
+  if(autoScrollActive) return;
+
+  autoScrollActive = true;
+
+  const speed =
+    parseFloat(
+      document.getElementById("scrollSpeed").value
+    );
+
+  function scrollPage(){
+
+    if(!autoScrollActive) return;
+
+    window.scrollBy({
+      top: speed,
+      left: 0,
+      behavior: "auto"
+    });
+
+    autoScrollAnimation =
+      requestAnimationFrame(scrollPage);
+  }
+
+  scrollPage();
+
+}
+
+
+function stopAutoScroll(){
+
+  autoScrollActive = false;
+
+  if(autoScrollAnimation){
+
+    cancelAnimationFrame(autoScrollAnimation);
+
+    autoScrollAnimation = null;
+
+  }
+
+}
 
 
 /* ================= OPEN SURAH ================= */
@@ -1947,6 +2102,8 @@ audio.play()
 status.innerHTML =
 "▶️ Audio is playing";
 
+  startAutoScroll();
+
 })
 .catch(()=>{
 
@@ -1969,6 +2126,51 @@ audio.pause();
 audio.removeAttribute("src");
 
 audio.load();
+  /* ================= AUTO SCROLL ================= */
+
+function startAutoScroll(){
+
+  if(autoScrollActive) return;
+
+  autoScrollActive = true;
+
+  const speed =
+    parseFloat(
+      document.getElementById("scrollSpeed").value
+    );
+
+  function scrollPage(){
+
+    if(!autoScrollActive) return;
+
+    window.scrollBy({
+      top: speed,
+      left: 0,
+      behavior: "auto"
+    });
+
+    autoScrollAnimation =
+      requestAnimationFrame(scrollPage);
+  }
+
+  scrollPage();
+
+}
+
+
+function stopAutoScroll(){
+
+  autoScrollActive = false;
+
+  if(autoScrollAnimation){
+
+    cancelAnimationFrame(autoScrollAnimation);
+
+    autoScrollAnimation = null;
+
+  }
+
+}
 
 
 const status =
