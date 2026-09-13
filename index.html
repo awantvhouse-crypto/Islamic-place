@@ -18,7 +18,7 @@
   --green:#0b6046;
 }
 
-body.Dark Mode{
+body.dark-mode{
   --bg:#0e1513;
   --card:#17211e;
   --text:#f1f1f1;
@@ -45,8 +45,6 @@ body{
   color:var(--text);
   transition:.3s;
 }
-
-/* ================= HEADER ================= */
 
 header{
   background:linear-gradient(135deg,#063d2d,#0b6046);
@@ -115,8 +113,6 @@ header p{
   box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
 
-/* ================= HERO ================= */
-
 .hero{
   background:
     radial-gradient(circle at top right,rgba(212,175,55,.25),transparent 35%),
@@ -150,8 +146,6 @@ header p{
   box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
 
-/* ================= MAIN ================= */
-
 .container{
   max-width:1150px;
   margin:auto;
@@ -162,8 +156,6 @@ header p{
   text-align:center;
   margin-bottom:25px;
 }
-
-/* ================= MAIN CARDS ================= */
 
 .main-sections{
   display:grid;
@@ -208,7 +200,7 @@ header p{
   color:var(--primary2);
 }
 
-body.Dark Mode .main-card h2{
+body.dark-mode .main-card h2{
   color:var(--gold);
 }
 
@@ -216,8 +208,6 @@ body.Dark Mode .main-card h2{
   color:var(--muted);
   line-height:1.6;
 }
-
-/* ================= SURAHS ================= */
 
 .surah-grid{
   display:grid;
@@ -277,11 +267,9 @@ body.Dark Mode .main-card h2{
   color:var(--primary2);
 }
 
-body.Dark Mode .arabic-name{
+body.dark-mode .arabic-name{
   color:var(--gold);
 }
-
-/* ================= PAGES ================= */
 
 #reader,
 #namazPage,
@@ -306,8 +294,6 @@ body.Dark Mode .arabic-name{
   text-align:center;
   margin:25px 0;
 }
-
-/* ================= CONTROLS ================= */
 
 .controls-box{
   background:var(--card);
@@ -337,8 +323,6 @@ body.Dark Mode .arabic-name{
   font-size:20px;
   cursor:pointer;
 }
-
-/* ================= QARI AUDIO ================= */
 
 .audio-controls{
   margin-top:30px;
@@ -398,8 +382,6 @@ audio{
   font-weight:bold;
 }
 
-/* ================= AYAT ================= */
-
 .ayah{
   background:var(--card);
   border-radius:17px;
@@ -428,8 +410,6 @@ audio{
   line-height:1.7;
 }
 
-/* ================= CONTENT ================= */
-
 .content-card{
   background:var(--card);
   border:2px solid var(--border);
@@ -443,7 +423,7 @@ audio{
   color:var(--primary2);
 }
 
-body.Dark Mode.content-card h2{
+body.dark-mode .content-card h2{
   color:var(--gold);
 }
 
@@ -458,8 +438,6 @@ body.Dark Mode.content-card h2{
   font-size:28px;
   line-height:2;
 }
-
-/* ================= INFO ================= */
 
 .info-modal{
   position:fixed;
@@ -557,8 +535,6 @@ body.Dark Mode.content-card h2{
   font-size:14px;
 }
 
-/* ================= FOOTER ================= */
-
 footer{
   background:linear-gradient(135deg,#063d2d,#0b6046);
   color:white;
@@ -570,8 +546,6 @@ footer{
 footer h2{
   color:var(--gold);
 }
-
-/* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
@@ -620,7 +594,6 @@ footer h2{
   }
 
 }
-  /* ================= AUTO SCROLL ================= */
 
 .scroll-controls{
   margin-top:20px;
@@ -654,1549 +627,592 @@ footer h2{
 .scroll-stop{
   background:#8b3030;
 }
-  /* ================= AUTO SCROLL ================= */
-
-let autoScrollActive = false;
-let autoScrollAnimation = null;
-
-function startAutoScroll(){
-
-  if(autoScrollActive) return;
-
-  autoScrollActive = true;
-
-  const speed =
-    parseFloat(
-      document.getElementById("scrollSpeed").value
-    );
-
-  function scrollPage(){
-
-    if(!autoScrollActive) return;
-
-    window.scrollBy(0, speed);
-
-    autoScrollAnimation =
-      requestAnimationFrame(scrollPage);
-  }
-
-  scrollPage();
-}
-
-
-function stopAutoScroll(){
-
-  autoScrollActive = false;
-
-  if(autoScrollAnimation){
-
-    cancelAnimationFrame(autoScrollAnimation);
-
-    autoScrollAnimation = null;
-
-  }
-
-}
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header>
 
-<button
-class="theme-btn"
-id="themeButton"
-onclick="toggleDarkMode()">
+<button class="theme-btn" id="themeButton" onclick="toggleDarkMode()">
 🌙 Dark Mode
 </button>
 
-<button
-class="info-btn"
-onclick="openInfo()">
+<button class="info-btn" onclick="openInfo()">
 ⓘ
 </button>
 
 <div class="academy-title">
-
-<img
-src="logo.png"
-alt="Quran"
-class="academy-logo">
-
+<img src="logo.png" alt="Quran" class="academy-logo">
 <h1>☪ Islamic Place From IQRA QURAN ACADEMY</h1>
-
 </div>
 
-<p>
-Read • Learn • Understand The Holy Quran
-</p>
+<p>Read • Learn • Understand The Holy Quran</p>
 
 </header>
 
-
-<!-- ================= HERO ================= -->
-
 <section class="hero" id="hero">
-
 <h2>📖 Quranic Learning</h2>
-
 <p>Quran • Namaz • Hadith</p>
-
 <div class="search-box">
-
-<input
-id="search"
-placeholder="Search Surah"
-oninput="searchSurah()">
-
+<input id="search" placeholder="Search Surah" oninput="searchSurah()">
 </div>
-
 </section>
-
-
-<!-- ================= HOME ================= -->
 
 <div class="container" id="home">
 
-
   <h2 class="title">
     This website was created by three members of Iqra Quran Academy. If you like our website, that's great! Thank you for visiting Iqra Quran Academy.</h2>
-  
-  
+
   <h2 class="title">
   Important!: Please read the information provided on this website first so that you can understand the content and avoid any misunderstanding or problems.</h2>
 
- <h2 class="title">
-  ☪ Islamic Place
-</h2>
-
+  <h2 class="title">☪ Islamic Place</h2>
 
 <div class="main-sections">
 
 <div class="main-card" onclick="showQuran()">
-
-<div class="main-icon">
-📖
-</div>
-
+<div class="main-icon">📖</div>
 <h2>Quran</h2>
-
-<p>
-Read all 114 Surahs with Arabic text,
-English translation and Qari audio.
-</p>
-
+<p>Read all 114 Surahs with Arabic text, English translation and Qari audio.</p>
 </div>
-
 
 <div class="main-card" onclick="showNamaz()">
-
-<div class="main-icon">
-🕌
-</div>
-
+<div class="main-icon">🕌</div>
 <h2>Namaz</h2>
-
-<p>
-Learn the basic steps of Salah,
-important duas and prayer information.
-</p>
-
+<p>Learn the basic steps of Salah, important duas and prayer information.</p>
 </div>
-
 
 <div class="main-card" onclick="showHadith()">
-
-<div class="main-icon">
-📜
-</div>
-
+<div class="main-icon">📜</div>
 <h2>Hadith</h2>
-
-<p>
-Read selected Hadith and learn
-important Islamic teachings.
-</p>
-
+<p>Read selected Hadith and learn important Islamic teachings.</p>
 </div>
 
 </div>
-
 
 <div id="quranHome">
-
-<h2 class="title">
-📖 Read All 114 Surahs
-</h2>
-
+<h2 class="title">📖 Read All 114 Surahs</h2>
 <div class="surah-grid" id="surahList">
-
-<div class="loading">
-📖 Loading Surahs...
+<div class="loading">📖 Loading Surahs...</div>
+</div>
 </div>
 
 </div>
-
-</div>
-
-</div>
-
-
-<!-- ================= QURAN READER ================= -->
 
 <div id="reader">
 
-<button class="back-btn" onclick="goHome()">
-← Home
-</button>
-
+<button class="back-btn" onclick="goHome()">← Home</button>
 
 <div class="reader-header">
-
 <h2 id="surahTitle"></h2>
-
 </div>
-
 
 <div class="controls-box">
 
-<h3>
-⚙️ Reading Settings
-</h3>
-
+<h3>⚙️ Reading Settings</h3>
 
 <div class="font-controls">
-
-<button onclick="decreaseFont()">
-A−
-</button>
-
-<span id="fontSizeText">
-Ayat: 30px
-</span>
-
-<button onclick="increaseFont()">
-A+
-</button>
-
+<button onclick="decreaseFont()">A−</button>
+<span id="fontSizeText">Ayat: 30px</span>
+<button onclick="increaseFont()">A+</button>
 </div>
-
 
 <div class="audio-controls">
-
-<h3>
-🎧 Quran Audio
-</h3>
-
-<div class="qari-count">
-🎙️ 20 Qaris Available
-</div>
-
-<p>
-Select a Qari. Some Qaris may not have
-a recording for every Surah.
-</p>
-
+<h3>🎧 Quran Audio</h3>
+<div class="qari-count">🎙️ 20 Qaris Available</div>
+<p>Select a Qari. Some Qaris may not have a recording for every Surah.</p>
 
 <select id="qariSelect">
-
-<option value="">
-🎙️ Select Qari
-</option>
-
-<option value="ar.alafasy">
-1. Mishary Rashid Alafasy
-</option>
-
-<option value="ar.abdulbasitmurattal">
-2. Abdul Basit Abdul Samad
-</option>
-
-<option value="ar.abdulbasitmujawwad">
-3. Abdul Basit Abdul Samad - Mujawwad
-</option>
-
-<option value="ar.hudhaify">
-4. Ali Al-Hudhaify
-</option>
-
-<option value="ar.abdurrahmaansudais">
-5. Abdul Rahman Al-Sudais
-</option>
-
-<option value="ar.saoodshuraym">
-6. Saud Al-Shuraim
-</option>
-
-<option value="ar.mahermuaiqly">
-7. Maher Al-Muaiqly
-</option>
-
-<option value="ar.minshawi">
-8. Muhammad Siddiq Al-Minshawi
-</option>
-
-<option value="ar.minshawimujawwad">
-9. Muhammad Siddiq Al-Minshawi - Mujawwad
-</option>
-
-<option value="ar.husary">
-10. Mahmoud Khalil Al-Husary
-</option>
-
-<option value="ar.husarymujawwad">
-11. Mahmoud Khalil Al-Husary - Mujawwad
-</option>
-
-<option value="ar.ahmedajamy">
-12. Ahmed Al-Ajmi
-</option>
-
-<option value="ar.muhammadayyoub">
-13. Muhammad Ayyoub
-</option>
-
-<option value="ar.aymanswoaid">
-14. Ayman Al-Suwaid
-</option>
-
-<option value="ar.ibrahimakhbar">
-15. Ibrahim Al-Akhdar
-</option>
-
-<option value="ar.abdullahbasfar">
-16. Abdullah Basfar
-</option>
-
-<option value="ar.abdullahmatroud">
-17. Abdullah Al-Matrood
-</option>
-
-<option value="ar.yasser">
-18. Yasser Al-Dosari
-</option>
-
-<option value="ar.fares">
-19. Fares Abbad
-</option>
-
-<option value="ar.nasser">
-20. Nasser Al-Qatami
-</option>
-
+<option value="">🎙️ Select Qari</option>
+<option value="ar.alafasy">1. Mishary Rashid Alafasy</option>
+<option value="ar.abdulbasitmurattal">2. Abdul Basit Abdul Samad</option>
+<option value="ar.abdulbasitmujawwad">3. Abdul Basit Abdul Samad - Mujawwad</option>
+<option value="ar.hudhaify">4. Ali Al-Hudhaify</option>
+<option value="ar.abdurrahmaansudais">5. Abdul Rahman Al-Sudais</option>
+<option value="ar.saoodshuraym">6. Saud Al-Shuraim</option>
+<option value="ar.mahermuaiqly">7. Maher Al-Muaiqly</option>
+<option value="ar.minshawi">8. Muhammad Siddiq Al-Minshawi</option>
+<option value="ar.minshawimujawwad">9. Muhammad Siddiq Al-Minshawi - Mujawwad</option>
+<option value="ar.husary">10. Mahmoud Khalil Al-Husary</option>
+<option value="ar.husarymujawwad">11. Mahmoud Khalil Al-Husary - Mujawwad</option>
+<option value="ar.ahmedajamy">12. Ahmed Al-Ajmi</option>
+<option value="ar.muhammadayyoub">13. Muhammad Ayyoub</option>
+<option value="ar.aymanswoaid">14. Ayman Al-Suwaid</option>
+<option value="ar.ibrahimakhbar">15. Ibrahim Al-Akhdar</option>
+<option value="ar.abdullahbasfar">16. Abdullah Basfar</option>
+<option value="ar.abdullahmatroud">17. Abdullah Al-Matrood</option>
+<option value="ar.yasser">18. Yasser Al-Dosari</option>
+<option value="ar.fares">19. Fares Abbad</option>
+<option value="ar.nasser">20. Nasser Al-Qatami</option>
 </select>
-
 
 <br>
 
+<button class="play-btn" onclick="playAudio()">▶ Play Selected Qari</button>
+<button class="stop-btn" onclick="stopAudio()">⏹ Stop</button>
 
-<button
-class="play-btn"
-onclick="playAudio()">
-▶ Play Selected Qari
-</button>
-
-
-<button
-class="stop-btn"
-onclick="stopAudio()">
-⏹ Stop
-</button>
-
-
-<audio
-id="quranAudio"
-controls>
-
+<audio id="quranAudio" controls>
 Your browser does not support audio.
-
 </audio>
 
-
 <p id="audioStatus"></p>
-  <!-- AUTOMATIC SCROLL -->
+
 <div class="scroll-controls">
-
   <h3>📜 Automatic Scroll</h3>
-
-  <p>
-    Page will scroll automatically while the Qari is playing.
-  </p>
-
+  <p>Page will scroll automatically while the Qari is playing.</p>
   <select id="scrollSpeed">
     <option value="0.5">🐢 Very Slow</option>
     <option value="1" selected>🚶 Slow</option>
     <option value="1.5">🏃 Medium</option>
     <option value="2">⚡ Fast</option>
   </select>
-
   <br>
-
-  <button
-    class="scroll-btn"
-    onclick="startAutoScroll()">
-    ▶ Start Scroll
-  </button>
-
-  <button
-    class="scroll-btn scroll-stop"
-    onclick="stopAutoScroll()">
-    ⏹ Stop Scroll
-  </button>
-
+  <button class="scroll-btn" onclick="startAutoScroll()">▶ Start Scroll</button>
+  <button class="scroll-btn scroll-stop" onclick="stopAutoScroll()">⏹ Stop Scroll</button>
 </div>
 
 </div>
-
 </div>
-
 
 <div id="ayahs"></div>
 
 </div>
 
-
-<!-- ================= NAMAZ PAGE ================= -->
-
 <div id="namazPage">
 
-<button class="back-btn" onclick="goHome()">
-← Home
-</button>
-
+<button class="back-btn" onclick="goHome()">← Home</button>
 
 <div class="reader-header">
-
 <h2>🕌 Namaz / Salah</h2>
-
-<p>
-Basic information about daily prayer
-</p>
-
+<p>Basic information about daily prayer</p>
 </div>
 
-
 <div class="content-card">
-
 <h2>🕋 Five Daily Prayers</h2>
-
 <ul>
-
-<li>
-<b>Fajr</b> — Morning prayer
-</li>
-
-<li>
-<b>Dhuhr</b> — Afternoon prayer
-</li>
-
-<li>
-<b>Asr</b> — Late afternoon prayer
-</li>
-
-<li>
-<b>Maghrib</b> — Prayer after sunset
-</li>
-
-<li>
-<b>Isha</b> — Night prayer
-</li>
-
+<li><b>Fajr</b> — Morning prayer</li>
+<li><b>Dhuhr</b> — Afternoon prayer</li>
+<li><b>Asr</b> — Late afternoon prayer</li>
+<li><b>Maghrib</b> — Prayer after sunset</li>
+<li><b>Isha</b> — Night prayer</li>
 </ul>
-
 </div>
 
-
 <div class="content-card">
-
 <h2>🤲 Important Dua</h2>
-
-<p class="arabic-large">
-رَبِّ اغْفِرْ لِي وَارْحَمْنِي
-</p>
-
-<p>
-My Lord, forgive me and have mercy upon me.
-</p>
-
+<p class="arabic-large">رَبِّ اغْفِرْ لِي وَارْحَمْنِي</p>
+<p>My Lord, forgive me and have mercy upon me.</p>
 </div>
 
-
 <div class="content-card">
-
 <h2>📿 Before Namaz</h2>
-
-<p>
-Make sure you have performed Wudu,
-your clothes and place are clean,
-and face the Qiblah.
-</p>
-
+<p>Make sure you have performed Wudu, your clothes and place are clean, and face the Qiblah.</p>
 </div>
-
 
 <div class="content-card">
-
 <h2>🕌 Main Steps</h2>
-
 <ol>
-
 <li>Make intention for the prayer.</li>
-
 <li>Stand facing the Qiblah.</li>
-
 <li>Begin the prayer with Takbir.</li>
-
 <li>Recite the required Quranic passages.</li>
-
 <li>Perform Ruku and Sujood.</li>
-
 <li>Complete the required Rakahs.</li>
-
 <li>Finish with Salam.</li>
-
 </ol>
-
 </div>
 
 </div>
-
-
-<!-- ================= HADITH PAGE ================= -->
 
 <div id="hadithPage">
 
-<button class="back-btn" onclick="goHome()">
-← Home
-</button>
-
+<button class="back-btn" onclick="goHome()">← Home</button>
 
 <div class="reader-header">
-
 <h2>📜 Hadith</h2>
-
-<p>
-Selected Islamic teachings
-</p>
-
+<p>Selected Islamic teachings</p>
 </div>
 
-
 <div class="content-card">
-
 <h2>🌙 Intention</h2>
-
-<p>
-Actions are judged by intentions.
-Every good deed should be done with
-a sincere intention for Allah.
-</p>
-
+<p>Actions are judged by intentions. Every good deed should be done with a sincere intention for Allah.</p>
 </div>
 
-
 <div class="content-card">
-
 <h2>😊 Good Character</h2>
-
-<p>
-Islam encourages kindness, honesty,
-patience, mercy and good treatment
-of other people.
-</p>
-
+<p>Islam encourages kindness, honesty, patience, mercy and good treatment of other people.</p>
 </div>
 
-
 <div class="content-card">
-
 <h2>🤝 Helping Others</h2>
-
-<p>
-Helping people, speaking kindly and
-supporting those in need are important
-parts of good Islamic character.
-</p>
-
+<p>Helping people, speaking kindly and supporting those in need are important parts of good Islamic character.</p>
 </div>
 
-
 <div class="content-card">
-
 <h2>❤️ Mercy</h2>
-
-<p>
-A Muslim should try to show mercy,
-forgiveness and kindness to others.
-</p>
-
+<p>A Muslim should try to show mercy, forgiveness and kindness to others.</p>
 </div>
-
 
 <div class="content-card">
-
 <h2>📚 Learn More</h2>
-
-<p>
-For detailed Hadith study, use reliable
-scholarly sources and authenticated
-Hadith collections.
-</p>
-
+<p>For detailed Hadith study, use reliable scholarly sources and authenticated Hadith collections.</p>
 </div>
 
 </div>
 
-
-<!-- ================= INFO MODAL ================= -->
-
-<div
-id="infoModal"
-class="info-modal"
-onclick="closeInfoOutside(event)">
+<div id="infoModal" class="info-modal" onclick="closeInfoOutside(event)">
 
 <div class="info-panel">
 
-<button
-class="close-info"
-onclick="closeInfo()">
-×
-</button>
-
+<button class="close-info" onclick="closeInfo()">×</button>
 
 <div class="info-header">
-
-<div class="info-circle">
-ⓘ
+<div class="info-circle">ⓘ</div>
+<h2>About This Website</h2>
+<p>Information about Quran, Qaris, audio and other information</p>
 </div>
-
-<h2>
-About This Website
-</h2>
-
-<p>
-Information about Quran, Qaris,
-audio and other information
-</p>
-
-</div>
-
 
 <div class="info-card">
-
-<div class="info-card-icon">
-📖
-</div>
-
+<div class="info-card-icon">📖</div>
 <div class="info-card-content">
-
-<div class="info-card-title">
-Quran
+<div class="info-card-title">Quran</div>
+<div class="info-card-text">Read all 114 Surahs with Arabic text and English translation.</div>
 </div>
-
-<div class="info-card-text">
-Read all 114 Surahs with Arabic text
-and English translation.
 </div>
-
-</div>
-
-</div>
-
 
 <div class="info-card">
-
-<div class="info-card-icon">
-🎧
-</div>
-
+<div class="info-card-icon">🎧</div>
 <div class="info-card-content">
-
-<div class="info-card-title">
-Qari Audio
+<div class="info-card-title">Qari Audio</div>
+<div class="info-card-text">20 Qari options are listed. Availability can vary by Surah and recording.</div>
 </div>
-
-<div class="info-card-text">
-20 Qari options are listed. Availability
-can vary by Surah and recording.
 </div>
-
-</div>
-
-</div>
-
 
 <div class="info-card">
-
-<div class="info-card-icon">
-🔄
-</div>
-
+<div class="info-card-icon">🔄</div>
 <div class="info-card-content">
-
-<div class="info-card-title">
-Audio Problems
+<div class="info-card-title">Audio Problems</div>
+<div class="info-card-text">If one Qari does not work for a Surah, try another Qari.</div>
 </div>
-
-<div class="info-card-text">
-If one Qari does not work for a Surah,
-try another Qari.
 </div>
-
-</div>
-
-</div>
-
 
 <div class="info-card">
-
-<div class="info-card-icon">
-🕌
-</div>
-
+<div class="info-card-icon">🕌</div>
 <div class="info-card-content">
-
-<div class="info-card-title">
-Namaz
+<div class="info-card-title">Namaz</div>
+<div class="info-card-text">Basic prayer information and learning material is provided.</div>
 </div>
-
-<div class="info-card-text">
-Basic prayer information and learning
-material is provided.
 </div>
-
-</div>
-
-</div>
-
 
 <div class="info-card">
-
-<div class="info-card-icon">
-📜
-</div>
-
+<div class="info-card-icon">📜</div>
 <div class="info-card-content">
-
-<div class="info-card-title">
-Hadith
+<div class="info-card-title">Hadith</div>
+<div class="info-card-text">Selected Islamic teachings and reminders.</div>
 </div>
-
-<div class="info-card-text">
-Selected Islamic teachings and reminders.
 </div>
-
-</div>
-
-</div>
-
 
 <div class="info-card">
-
-<div class="info-card-icon">
-🌐
-</div>
-
+<div class="info-card-icon">🌐</div>
 <div class="info-card-content">
-
-<div class="info-card-title">
-Internet
+<div class="info-card-title">Internet</div>
+<div class="info-card-text">Quran data and audio are loaded from online services, so an internet connection is required.</div>
 </div>
-
-<div class="info-card-text">
-Quran data and audio are loaded from
-online services, so an internet connection
-is required.
 </div>
-
-</div>
-
-</div>
-
 
 <div class="info-card">
-
-<div class="info-card-icon">
-📱
-</div>
-
+<div class="info-card-icon">📱</div>
 <div class="info-card-content">
-
-<div class="info-card-title">
-Mobile Friendly
+<div class="info-card-title">Mobile Friendly</div>
+<div class="info-card-text">The website works on phones, computers and others..</div>
 </div>
-
-<div class="info-card-text">
-The website works on phones, computers 
-and others..
 </div>
 
 </div>
 
 </div>
-
-</div>
-
-</div>
-
-
-<!-- ================= FOOTER ================= -->
 
 <footer>
-
-<h2>
-☪ Islamic Place
-</h2>
-
-<p>
-Read • Learn • Understand The Holy Quran With Hdith And Namaz Rules
-</p>
-
-<p>
-© 2026 Islamic Place
-</p>
-
+<h2>☪ Islamic Place</h2>
+<p>Read • Learn • Understand The Holy Quran With Hdith And Namaz Rules</p>
+<p>© 2026 Islamic Place</p>
 </footer>
 
-
 <script>
-  let autoScrollActive = false;
-let autoScrollAnimation = null;
-
-/* ================= VARIABLES ================= */
 
 let surahs = [];
 let currentSurah = 1;
 let arabicFontSize = 30;
 
-
-/* ================= THEME ================= */
+let autoScrollActive = false;
+let autoScrollAnimation = null;
 
 function toggleDarkMode(){
-
-document.body.classList.toggle("Dark Mode");
-
-const btn =
-document.getElementById("themeButton");
-
-if(document.body.classList.contains("Dark Mode")){
-
-btn.innerHTML = "☀️ Light Mode";
-
-localStorage.setItem("theme","Dark Mode");
-
-}else{
-
-btn.innerHTML = "🌙 Dark Mode";
-
-localStorage.setItem("theme","light");
-
+  document.body.classList.toggle("dark-mode");
+  const btn = document.getElementById("themeButton");
+  if(document.body.classList.contains("dark-mode")){
+    btn.innerHTML = "☀️ Light Mode";
+    localStorage.setItem("theme","dark-mode");
+  }else{
+    btn.innerHTML = "🌙 Dark Mode";
+    localStorage.setItem("theme","light");
+  }
 }
 
+if(localStorage.getItem("theme")==="dark-mode"){
+  document.body.classList.add("dark-mode");
+  document.getElementById("themeButton").innerHTML="☀️ Light Mode";
 }
-
-
-if(localStorage.getItem("theme")==="Dark Mode"){
-
-document.body.classList.add("Dark Mode");
-
-document.getElementById("themeButton")
-.innerHTML="☀️ Light Mode";
-
-}
-
-
-/* ================= INFO ================= */
 
 function openInfo(){
-
-document
-.getElementById("infoModal")
-.classList.add("show");
-
+  document.getElementById("infoModal").classList.add("show");
 }
-
 
 function closeInfo(){
-
-document
-.getElementById("infoModal")
-.classList.remove("show");
-
+  document.getElementById("infoModal").classList.remove("show");
 }
-
 
 function closeInfoOutside(e){
-
-if(e.target.id==="infoModal"){
-
-closeInfo();
-
+  if(e.target.id==="infoModal"){
+    closeInfo();
+  }
 }
 
-}
-
-
-/* ================= FONT ================= */
-
-const savedFont =
-localStorage.getItem("arabicFontSize");
-
+const savedFont = localStorage.getItem("arabicFontSize");
 if(savedFont){
-
-arabicFontSize =
-parseInt(savedFont);
-
+  arabicFontSize = parseInt(savedFont);
 }
-
 
 function increaseFont(){
-
-if(arabicFontSize < 60){
-
-arabicFontSize += 2;
-
-updateFont();
-
+  if(arabicFontSize < 60){
+    arabicFontSize += 2;
+    updateFont();
+  }
 }
-
-}
-
 
 function decreaseFont(){
-
-if(arabicFontSize > 20){
-
-arabicFontSize -= 2;
-
-updateFont();
-
+  if(arabicFontSize > 20){
+    arabicFontSize -= 2;
+    updateFont();
+  }
 }
-
-}
-
 
 function updateFont(){
-
-document
-.querySelectorAll(".arabic")
-.forEach(el=>{
-
-el.style.fontSize =
-arabicFontSize+"px";
-
-});
-
-
-document
-.getElementById("fontSizeText")
-.innerHTML =
-"Ayat: "+arabicFontSize+"px";
-
-
-localStorage.setItem(
-"arabicFontSize",
-arabicFontSize
-);
-
+  document.querySelectorAll(".arabic").forEach(el=>{
+    el.style.fontSize = arabicFontSize+"px";
+  });
+  document.getElementById("fontSizeText").innerHTML = "Ayat: "+arabicFontSize+"px";
+  localStorage.setItem("arabicFontSize", arabicFontSize);
 }
 
-
-/* ================= LOAD SURAHS ================= */
-
-fetch(
-"https://api.alquran.cloud/v1/surah"
-)
-
+fetch("https://api.alquran.cloud/v1/surah")
 .then(r=>r.json())
-
 .then(data=>{
-
-surahs = data.data;
-
-displaySurahs(surahs);
-
+  surahs = data.data;
+  displaySurahs(surahs);
 })
-
 .catch(()=>{
-
-document.getElementById("surahList")
-.innerHTML =
-"<div class='loading'>❌ Could not load Surahs.</div>";
-
+  document.getElementById("surahList").innerHTML = "<div class='loading'>❌ Could not load Surahs.</div>";
 });
-
-
-/* ================= DISPLAY SURAHS ================= */
 
 function displaySurahs(list){
+  let html = "";
+  list.forEach(surah=>{
+    html += `
+    <div class="surah-card" onclick="openSurah(${surah.number})">
+      <div class="number">${surah.number}</div>
+      <div class="info">
+        <h3>${surah.englishName}</h3>
+        <p>${surah.englishNameTranslation} • ${surah.numberOfAyahs} Ayahs</p>
+      </div>
+      <div class="arabic-name">${surah.name}</div>
+    </div>
+    `;
+  });
 
-let html = "";
+  if(list.length===0){
+    html = "<div class='loading'>No Surah found.</div>";
+  }
 
-list.forEach(surah=>{
-
-html += `
-
-<div
-class="surah-card"
-onclick="openSurah(${surah.number})">
-
-<div class="number">
-${surah.number}
-</div>
-
-<div class="info">
-
-<h3>
-${surah.englishName}
-</h3>
-
-<p>
-${surah.englishNameTranslation}
-•
-${surah.numberOfAyahs}
-Ayahs
-</p>
-
-</div>
-
-<div class="arabic-name">
-${surah.name}
-</div>
-
-</div>
-
-`;
-
-});
-
-
-if(list.length===0){
-
-html =
-"<div class='loading'>No Surah found.</div>";
-
+  document.getElementById("surahList").innerHTML = html;
 }
-
-
-document.getElementById("surahList")
-.innerHTML = html;
-
-}
-
-
-/* ================= SEARCH ================= */
 
 function searchSurah(){
-
-const value =
-document
-.getElementById("search")
-.value
-.toLowerCase()
-.trim();
-
-
-const filtered =
-surahs.filter(surah =>
-
-surah.englishName
-.toLowerCase()
-.includes(value)
-
-||
-
-surah.englishNameTranslation
-.toLowerCase()
-.includes(value)
-
-||
-
-surah.name.includes(value)
-
-||
-
-String(surah.number)
-.includes(value)
-
-);
-
-
-displaySurahs(filtered);
-
+  const value = document.getElementById("search").value.toLowerCase().trim();
+  const filtered = surahs.filter(surah =>
+    surah.englishName.toLowerCase().includes(value) ||
+    surah.englishNameTranslation.toLowerCase().includes(value) ||
+    surah.name.includes(value) ||
+    String(surah.number).includes(value)
+  );
+  displaySurahs(filtered);
 }
-
-
-/* ================= QURAN PAGE ================= */
 
 function showQuran(){
-
-document.getElementById("home")
-.style.display="block";
-
-document.getElementById("hero")
-.style.display="block";
-
-document.getElementById("quranHome")
-.style.display="block";
-
-document.getElementById("reader")
-.style.display="none";
-
-document.getElementById("namazPage")
-.style.display="none";
-
-document.getElementById("hadithPage")
-.style.display="none";
-
-window.scrollTo(0,0);
-
+  document.getElementById("home").style.display="block";
+  document.getElementById("hero").style.display="block";
+  document.getElementById("quranHome").style.display="block";
+  document.getElementById("reader").style.display="none";
+  document.getElementById("namazPage").style.display="none";
+  document.getElementById("hadithPage").style.display="none";
+  window.scrollTo(0,0);
 }
-
-
-/* ================= NAMAZ ================= */
 
 function showNamaz(){
-
-document.getElementById("home")
-.style.display="none";
-
-document.getElementById("hero")
-.style.display="none";
-
-document.getElementById("reader")
-.style.display="none";
-
-document.getElementById("namazPage")
-.style.display="block";
-
-document.getElementById("hadithPage")
-.style.display="none";
-
-window.scrollTo(0,0);
-
+  document.getElementById("home").style.display="none";
+  document.getElementById("hero").style.display="none";
+  document.getElementById("reader").style.display="none";
+  document.getElementById("namazPage").style.display="block";
+  document.getElementById("hadithPage").style.display="none";
+  window.scrollTo(0,0);
 }
-
-
-/* ================= HADITH ================= */
 
 function showHadith(){
-
-document.getElementById("home")
-.style.display="none";
-
-document.getElementById("hero")
-.style.display="none";
-
-document.getElementById("reader")
-.style.display="none";
-
-document.getElementById("namazPage")
-.style.display="none";
-
-document.getElementById("hadithPage")
-.style.display="block";
-
-window.scrollTo(0,0);
-
+  document.getElementById("home").style.display="none";
+  document.getElementById("hero").style.display="none";
+  document.getElementById("reader").style.display="none";
+  document.getElementById("namazPage").style.display="none";
+  document.getElementById("hadithPage").style.display="block";
+  window.scrollTo(0,0);
 }
-
-
-/* ================= HOME ================= */
 
 function goHome(){
-
-stopAudio();
-
-document.getElementById("home")
-.style.display="block";
-
-document.getElementById("hero")
-.style.display="block";
-
-document.getElementById("quranHome")
-.style.display="block";
-
-document.getElementById("reader")
-.style.display="none";
-
-document.getElementById("namazPage")
-.style.display="none";
-
-document.getElementById("hadithPage")
-.style.display="none";
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
+  stopAudio();
+  document.getElementById("home").style.display="block";
+  document.getElementById("hero").style.display="block";
+  document.getElementById("quranHome").style.display="block";
+  document.getElementById("reader").style.display="none";
+  document.getElementById("namazPage").style.display="none";
+  document.getElementById("hadithPage").style.display="none";
+  window.scrollTo({top:0, behavior:"smooth"});
 }
-  /* ================= AUTO SCROLL ================= */
-
-function startAutoScroll(){
-
-  if(autoScrollActive) return;
-
-  autoScrollActive = true;
-
-  const speed =
-    parseFloat(
-      document.getElementById("scrollSpeed").value
-    );
-
-  function scrollPage(){
-
-    if(!autoScrollActive) return;
-
-    window.scrollBy({
-      top: speed,
-      left: 0,
-      behavior: "auto"
-    });
-
-    autoScrollAnimation =
-      requestAnimationFrame(scrollPage);
-  }
-
-  scrollPage();
-
-}
-
-
-function stopAutoScroll(){
-
-  autoScrollActive = false;
-
-  if(autoScrollAnimation){
-
-    cancelAnimationFrame(autoScrollAnimation);
-
-    autoScrollAnimation = null;
-
-  }
-
-}
-
-
-/* ================= OPEN SURAH ================= */
 
 function openSurah(number){
+  currentSurah = number;
+  document.getElementById("home").style.display="none";
+  document.getElementById("hero").style.display="none";
+  document.getElementById("reader").style.display="block";
+  document.getElementById("namazPage").style.display="none";
+  document.getElementById("hadithPage").style.display="none";
 
-currentSurah = number;
+  document.getElementById("ayahs").innerHTML = "<div class='loading'>📖 Loading Quran...</div>";
+  document.getElementById("audioStatus").innerHTML="";
+  stopAudio();
+  window.scrollTo(0,0);
 
-document.getElementById("home")
-.style.display="none";
+  fetch("https://api.alquran.cloud/v1/surah/"+number+"/editions/quran-uthmani,en.asad")
+  .then(r=>r.json())
+  .then(data=>{
+    const arabic = data.data[0];
+    const translation = data.data[1];
 
-document.getElementById("hero")
-.style.display="none";
+    document.getElementById("surahTitle").innerHTML =
+      arabic.number + ". " + arabic.englishName + " — " + arabic.name;
 
-document.getElementById("reader")
-.style.display="block";
+    let html = "";
+    for(let i=0; i<arabic.ayahs.length; i++){
+      html += `
+      <div class="ayah">
+        <div class="arabic" style="font-size:${arabicFontSize}px">
+          ${arabic.ayahs[i].text}
+          <span class="ayah-number">(${arabic.ayahs[i].numberInSurah})</span>
+        </div>
+        <div class="translation">
+          <b>English Translation:</b><br><br>
+          ${translation.ayahs[i].text}
+        </div>
+      </div>
+      `;
+    }
 
-document.getElementById("namazPage")
-.style.display="none";
-
-document.getElementById("hadithPage")
-.style.display="none";
-
-
-document.getElementById("ayahs")
-.innerHTML =
-"<div class='loading'>📖 Loading Quran...</div>";
-
-
-document.getElementById("audioStatus")
-.innerHTML="";
-
-stopAudio();
-
-window.scrollTo(0,0);
-
-
-fetch(
-"https://api.alquran.cloud/v1/surah/"
-+
-number
-+
-"/editions/quran-uthmani,en.asad"
-)
-
-.then(r=>r.json())
-
-.then(data=>{
-
-const arabic = data.data[0];
-
-const translation = data.data[1];
-
-
-document.getElementById("surahTitle")
-.innerHTML =
-arabic.number
-+
-". "
-+
-arabic.englishName
-+
-" — "
-+
-arabic.name;
-
-
-let html = "";
-
-
-for(
-let i=0;
-i<arabic.ayahs.length;
-i++
-){
-
-html += `
-
-<div class="ayah">
-
-<div
-class="arabic"
-style="font-size:${arabicFontSize}px">
-
-${arabic.ayahs[i].text}
-
-<span class="ayah-number">
-(
-${arabic.ayahs[i].numberInSurah}
-)
-</span>
-
-</div>
-
-<div class="translation">
-
-<b>
-English Translation:
-</b>
-
-<br><br>
-
-${translation.ayahs[i].text}
-
-</div>
-
-</div>
-
-`;
-
+    document.getElementById("ayahs").innerHTML = html;
+    updateFont();
+  })
+  .catch(()=>{
+    document.getElementById("ayahs").innerHTML = "<div class='loading'>❌ Quran could not load.</div>";
+  });
 }
-
-
-document.getElementById("ayahs")
-.innerHTML = html;
-
-updateFont();
-
-})
-
-.catch(()=>{
-
-document.getElementById("ayahs")
-.innerHTML =
-"<div class='loading'>❌ Quran could not load.</div>";
-
-});
-
-}
-
-
-/* ================= QARI AUDIO ================= */
 
 function playAudio(){
+  const qari = document.getElementById("qariSelect").value;
+  const audio = document.getElementById("quranAudio");
+  const status = document.getElementById("audioStatus");
 
-const qari =
-document.getElementById("qariSelect").value;
+  if(!qari){
+    status.innerHTML = "⚠️ Please select a Qari.";
+    return;
+  }
 
-const audio =
-document.getElementById("quranAudio");
+  status.innerHTML = "🔎 Loading Qari audio...";
 
-const status =
-document.getElementById("audioStatus");
+  const url = "https://cdn.islamic.network/quran/audio-surah/128/"+encodeURIComponent(qari)+"/"+currentSurah+".mp3";
 
+  audio.pause();
+  audio.src = url;
+  audio.load();
 
-if(!qari){
+  audio.oncanplay = function(){
+    status.innerHTML = "🎧 Qari audio ready — Playing...";
+    audio.play().catch(()=>{
+      status.innerHTML = "🎧 Audio loaded. Press the play button.";
+    });
+  };
 
-status.innerHTML =
-"⚠️ Please select a Qari.";
+  audio.onerror = function(){
+    status.innerHTML = "❌ This Qari's audio is not available for this Surah. Try another Qari.";
+  };
 
-return;
+  audio.onended = function(){
+    status.innerHTML = "✅ Audio finished.";
+    stopAutoScroll();
+  };
 
+  audio.play().then(()=>{
+    status.innerHTML = "▶️ Audio is playing";
+    startAutoScroll();
+  }).catch(()=>{});
 }
-
-
-status.innerHTML =
-"🔎 Loading Qari audio...";
-
-
-/*
-  Quran audio source.
-  The selected Qari identifier is used
-  to request the Surah recording.
-*/
-
-const url =
-"https://cdn.islamic.network/quran/audio-surah/128/"
-+
-encodeURIComponent(qari)
-+
-"/"
-+
-currentSurah
-+
-".mp3";
-
-
-audio.pause();
-
-audio.src = url;
-
-audio.load();
-
-
-audio.oncanplay = function(){
-
-status.innerHTML =
-"🎧 Qari audio ready — Playing...";
-
-audio.play()
-.catch(()=>{
-
-status.innerHTML =
-"🎧 Audio loaded. Press the play button.";
-
-});
-
-};
-
-
-audio.onerror = function(){
-
-status.innerHTML =
-"❌ This Qari's audio is not available for this Surah. Try another Qari.";
-
-};
-
-
-audio.onended = function(){
-
-status.innerHTML =
-"✅ Audio finished.";
-
-};
-
-
-audio.play()
-.then(()=>{
-
-status.innerHTML =
-"▶️ Audio is playing";
-
-  startAutoScroll();
-
-})
-.catch(()=>{
-
-});
-
-}
-
-
-/* ================= STOP AUDIO ================= */
 
 function stopAudio(){
+  const audio = document.getElementById("quranAudio");
+  if(!audio) return;
+  audio.pause();
+  audio.removeAttribute("src");
+  audio.load();
+  stopAutoScroll();
 
-const audio =
-document.getElementById("quranAudio");
-
-if(!audio) return;
-
-audio.pause();
-
-audio.removeAttribute("src");
-
-audio.load();
-  /* ================= AUTO SCROLL ================= */
+  const status = document.getElementById("audioStatus");
+  if(status){
+    status.innerHTML="";
+  }
+}
 
 function startAutoScroll(){
-
   if(autoScrollActive) return;
-
   autoScrollActive = true;
-
-  const speed =
-    parseFloat(
-      document.getElementById("scrollSpeed").value
-    );
+  const speed = parseFloat(document.getElementById("scrollSpeed").value);
 
   function scrollPage(){
-
     if(!autoScrollActive) return;
-
-    window.scrollBy({
-      top: speed,
-      left: 0,
-      behavior: "auto"
-    });
-
-    autoScrollAnimation =
-      requestAnimationFrame(scrollPage);
+    window.scrollBy({top: speed, left: 0, behavior: "auto"});
+    autoScrollAnimation = requestAnimationFrame(scrollPage);
   }
-
   scrollPage();
-
 }
-
 
 function stopAutoScroll(){
-
   autoScrollActive = false;
-
   if(autoScrollAnimation){
-
     cancelAnimationFrame(autoScrollAnimation);
-
     autoScrollAnimation = null;
-
   }
-
 }
 
-
-const status =
-document.getElementById("audioStatus");
-
-if(status){
-
-status.innerHTML="";
-
-}
-
-}
-
-
-/* ================= ESCAPE ================= */
-
-document.addEventListener(
-"keydown",
-e=>{
-
-if(e.key==="Escape"){
-
-closeInfo();
-
-}
-
+document.addEventListener("keydown", e=>{
+  if(e.key==="Escape"){
+    closeInfo();
+  }
 });
 
 </script>
