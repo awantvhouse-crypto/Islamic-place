@@ -18,7 +18,7 @@
   --green:#0b6046;
 }
 
-body.dark{
+body.Dark Mode{
   --bg:#0e1513;
   --card:#17211e;
   --text:#f1f1f1;
@@ -208,7 +208,7 @@ header p{
   color:var(--primary2);
 }
 
-body.dark .main-card h2{
+body.Dark Mode .main-card h2{
   color:var(--gold);
 }
 
@@ -277,7 +277,7 @@ body.dark .main-card h2{
   color:var(--primary2);
 }
 
-body.dark .arabic-name{
+body.Dark Mode .arabic-name{
   color:var(--gold);
 }
 
@@ -443,7 +443,7 @@ audio{
   color:var(--primary2);
 }
 
-body.dark .content-card h2{
+body.Dark Mode.content-card h2{
   color:var(--gold);
 }
 
@@ -710,7 +710,7 @@ function stopAutoScroll(){
 class="theme-btn"
 id="themeButton"
 onclick="toggleDarkMode()">
-🌙 Dark
+🌙 Dark Mode
 </button>
 
 <button
@@ -741,7 +741,7 @@ Read • Learn • Understand The Holy Quran
 
 <section class="hero" id="hero">
 
-<h2>📖 Islamic Learning</h2>
+<h2>📖 Quranic Learning</h2>
 
 <p>Quran • Namaz • Hadith</p>
 
@@ -749,7 +749,7 @@ Read • Learn • Understand The Holy Quran
 
 <input
 id="search"
-placeholder="Search Surah: Fatiha, Yaseen, Mulk, 36..."
+placeholder="Search Surah"
 oninput="searchSurah()">
 
 </div>
@@ -829,7 +829,7 @@ important Islamic teachings.
 <div id="quranHome">
 
 <h2 class="title">
-📖 All 114 Surahs
+📖 Read All 114 Surahs
 </h2>
 
 <div class="surah-grid" id="surahList">
@@ -1279,7 +1279,7 @@ About This Website
 
 <p>
 Information about Quran, Qaris,
-audio and Islamic sections.
+audio and other information
 </p>
 
 </div>
@@ -1430,8 +1430,8 @@ Mobile Friendly
 </div>
 
 <div class="info-card-text">
-The website works on phones, tablets
-and computers.
+The website works on phones, computers 
+and others..
 </div>
 
 </div>
@@ -1452,11 +1452,11 @@ and computers.
 </h2>
 
 <p>
-Read • Learn • Understand The Holy Quran
+Read • Learn • Understand The Holy Quran With Hdith And Namaz Rules
 </p>
 
 <p>
-© 2026 Iqra Quran Academy
+© 2026 Islamic Place
 </p>
 
 </footer>
@@ -1477,20 +1477,20 @@ let arabicFontSize = 30;
 
 function toggleDarkMode(){
 
-document.body.classList.toggle("dark");
+document.body.classList.toggle("Dark Mode");
 
 const btn =
 document.getElementById("themeButton");
 
-if(document.body.classList.contains("dark")){
+if(document.body.classList.contains("Dark Mode")){
 
-btn.innerHTML = "☀️ Light";
+btn.innerHTML = "☀️ Light Mode";
 
-localStorage.setItem("theme","dark");
+localStorage.setItem("theme","Dark Mode");
 
 }else{
 
-btn.innerHTML = "🌙 Dark";
+btn.innerHTML = "🌙 Dark Mode";
 
 localStorage.setItem("theme","light");
 
@@ -1499,12 +1499,12 @@ localStorage.setItem("theme","light");
 }
 
 
-if(localStorage.getItem("theme")==="dark"){
+if(localStorage.getItem("theme")==="Dark Mode"){
 
-document.body.classList.add("dark");
+document.body.classList.add("Dark Mode");
 
 document.getElementById("themeButton")
-.innerHTML="☀️ Light";
+.innerHTML="☀️ Light Mode";
 
 }
 
